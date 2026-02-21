@@ -1178,3 +1178,185 @@ body {
 .block-place__submit {
   animation-fill-mode: forwards;
 }
+
+/* ========== Мобильные устройства: единые размеры и правильные позиции ========== */
+@media (max-width: 768px) {
+  :root {
+    /* Блок 1: герой — по центру, читаемые размеры */
+    --name-left-x: 50%;
+    --name-left-y: 22%;
+    --name-right-x: 50%;
+    --name-right-y: 30%;
+    --pen-x: 50%;
+    --pen-y: 36%;
+    --event-x: 50%;
+    --event-y: 42%;
+    --date-month-x: 25%;
+    --date-month-y: 72%;
+    --date-day-x: 50%;
+    --date-day-y: 72%;
+    --date-year-x: 75%;
+    --date-year-y: 72%;
+
+    /* Блок 2: приглашение — вертикальная сетка по центру */
+    --block2-guests-y: 12%;
+    --block2-children-y: 24%;
+    --block2-nurdaulet-y: 32%;
+    --block2-pen-y: 38%;
+    --block2-araylym-y: 44%;
+    --block2-invitation-y: 56%;
+    --block2-hosts-y: 72%;
+    --block2-parents-y: 80%;
+
+    /* Блок 3: той салтанаты */
+    --block3-title-y: 10%;
+    --block3-time-caption-y: 52%;
+    --block3-time-value-y: 58%;
+    --block3-countdown-caption-y: 65%;
+    --block3-countdown-days-y: 78%;
+    --block3-countdown-hours-y: 78%;
+    --block3-countdown-minutes-y: 78%;
+    --block3-countdown-seconds-y: 78%;
+    --block3-countdown-days-x: 18%;
+    --block3-countdown-hours-x: 40%;
+    --block3-countdown-minutes-x: 62%;
+    --block3-countdown-seconds-x: 84%;
+    --block3-calendar-y: 38%;
+    --block3-title-size: 2.2rem;
+    --block3-time-caption-size: 1.3rem;
+    --block3-time-value-size: 2.8rem;
+    --block3-countdown-caption-size: 1.2rem;
+    --block3-countdown-num-size: 1.8rem;
+    --block3-countdown-label-size: 1rem;
+
+    /* Блок 4: форма — по центру, вертикальная раскладка */
+    --block4-title-y: 10%;
+    --block4-title-size: 2.2rem;
+    --block4-address-y: 22%;
+    --block4-address-size: 1.2rem;
+    --block4-2gis-btn-x: 50%;
+    --block4-2gis-btn-y: 32%;
+    --block4-2gis-text-x: 50%;
+    --block4-2gis-text-y: 38%;
+    --block4-2gis-text-size: 1.2rem;
+    --block4-confirm-x: 50%;
+    --block4-confirm-y: 45%;
+    --block4-confirm-size: 1.2rem;
+    --block4-label-name-x: 50%;
+    --block4-label-name-y: 52%;
+    --block4-label-name-size: 1rem;
+    --block4-input-x: 50%;
+    --block4-input-y: 58%;
+    --block4-label-attend-x: 50%;
+    --block4-label-attend-y: 65%;
+    --block4-label-attend-size: 1rem;
+    --block4-radios-x: 50%;
+    --block4-radios-y: 74%;
+    --block4-submit-x: 50%;
+    --block4-submit-y: 85%;
+    --block4-msg-success-y: 92%;
+    --block4-input-max-width: 280px;
+  }
+
+  /* Блок 1: центрирование надписей на мобильных */
+  .block-hero__name--left,
+  .block-hero__name--right {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .block-hero__name {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+  .block-hero__sub {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  .block-hero__date--month,
+  .block-hero__date--year {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+  }
+  .block-hero__date--day {
+    font-size: clamp(2.8rem, 18vw, 4rem);
+  }
+
+  /* Блок 2: разрешаем перенос текста, единый размер надписей */
+  .block-invite__title,
+  .block-invite__text {
+    white-space: normal;
+    text-align: center;
+    max-width: 90%;
+    left: 50% !important;
+  }
+  .block-invite__title--guests { font-size: 1.9rem; }
+  .block-invite__text--children { font-size: 1.2rem; }
+  .block-invite__title--nurdaulet { font-size: 1.7rem; }
+  .block-invite__text--pen { font-size: 1.3rem; }
+  .block-invite__title--araylym { font-size: 1.5rem; }
+  .block-invite__text--invitation { font-size: 1.2rem; }
+  .block-invite__text--hosts { font-size: 1.2rem; }
+  .block-invite__title--parents { font-size: 1.5rem; }
+
+  /* Блок 3: календарь меньше, подписи счётчика в одну строку */
+  .block-event__calendar {
+    max-width: 85vw;
+    width: 85vw;
+  }
+  .block-event__label--countdown-caption {
+    white-space: normal;
+    font-size: 1.1rem;
+  }
+
+  /* Блок 4: подписи и форма по центру, фиксированные размеры */
+  .block-place__text--address {
+    white-space: normal;
+    font-size: 1.2rem;
+  }
+  .block-place__text--confirm {
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 320px;
+    font-size: 1.15rem;
+  }
+  .block-place__text--2gis {
+    left: 50% !important;
+    text-align: center;
+  }
+  .block-place__label--name {
+    left: 50% !important;
+    text-align: center;
+    width: 90%;
+    max-width: 320px;
+  }
+  .block-place__label--attend {
+    left: 50% !important;
+    text-align: center;
+  }
+  .block-place__radios {
+    align-items: center;
+  }
+}
+
+/* Очень маленькие экраны (телефоны) */
+@media (max-width: 480px) {
+  :root {
+    --block2-guests-y: 11%;
+    --block2-children-y: 22%;
+    --block2-nurdaulet-y: 30%;
+    --block2-pen-y: 36%;
+    --block2-araylym-y: 42%;
+    --block2-invitation-y: 55%;
+    --block2-hosts-y: 70%;
+    --block2-parents-y: 79%;
+    --block3-countdown-num-size: 1.5rem;
+    --block3-countdown-label-size: 0.9rem;
+    --block4-input-max-width: 260px;
+  }
+  .block-invite__title--guests { font-size: 1.6rem; }
+  .block-invite__title--nurdaulet { font-size: 1.5rem; }
+  .block-invite__title--araylym { font-size: 1.35rem; }
+  .block-invite__title--parents { font-size: 1.35rem; }
+  .block-event__countdown-item {
+    gap: 0.1em;
+  }
+}
