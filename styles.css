@@ -1179,18 +1179,19 @@ body {
   animation-fill-mode: forwards;
 }
 
-/* ========== Мобильные устройства: единые размеры и правильные позиции ========== */
+/* ========== Адаптивность (как в проекте Приглашение): одинаковый размер и расположение на любых телефонах ========== */
+/* Фиксированные rem вместо vw/clamp — заголовки и надписи не меняются от ширины экрана */
 @media (max-width: 768px) {
   :root {
-    /* Блок 1: герой — по центру, читаемые размеры */
-    --name-left-x: 50%;
-    --name-left-y: 22%;
+    /* Блок 1 */
+    --name-left-x: 10%;
+    --name-left-y: 20%;
     --name-right-x: 50%;
-    --name-right-y: 30%;
-    --pen-x: 50%;
-    --pen-y: 36%;
-    --event-x: 50%;
-    --event-y: 42%;
+    --name-right-y: 25%;
+    --pen-x: 35%;
+    --pen-y: 25%;
+    --event-x: 23%;
+    --event-y: 30%;
     --date-month-x: 25%;
     --date-month-y: 72%;
     --date-day-x: 50%;
@@ -1198,7 +1199,7 @@ body {
     --date-year-x: 75%;
     --date-year-y: 72%;
 
-    /* Блок 2: приглашение — вертикальная сетка по центру */
+    /* Блок 2 */
     --block2-guests-y: 12%;
     --block2-children-y: 24%;
     --block2-nurdaulet-y: 32%;
@@ -1208,7 +1209,7 @@ body {
     --block2-hosts-y: 72%;
     --block2-parents-y: 80%;
 
-    /* Блок 3: той салтанаты */
+    /* Блок 3 — фиксированные rem */
     --block3-title-y: 10%;
     --block3-time-caption-y: 52%;
     --block3-time-value-y: 58%;
@@ -1222,34 +1223,34 @@ body {
     --block3-countdown-minutes-x: 62%;
     --block3-countdown-seconds-x: 84%;
     --block3-calendar-y: 38%;
-    --block3-title-size: 2.2rem;
-    --block3-time-caption-size: 1.3rem;
-    --block3-time-value-size: 2.8rem;
-    --block3-countdown-caption-size: 1.2rem;
-    --block3-countdown-num-size: 1.8rem;
-    --block3-countdown-label-size: 1rem;
+    --block3-title-size: 2rem;
+    --block3-time-caption-size: 1.25rem;
+    --block3-time-value-size: 2.5rem;
+    --block3-countdown-caption-size: 1.15rem;
+    --block3-countdown-num-size: 1.7rem;
+    --block3-countdown-label-size: 0.95rem;
 
-    /* Блок 4: форма — по центру, вертикальная раскладка */
+    /* Блок 4 */
     --block4-title-y: 10%;
-    --block4-title-size: 2.2rem;
+    --block4-title-size: 2rem;
     --block4-address-y: 22%;
-    --block4-address-size: 1.2rem;
+    --block4-address-size: 1.15rem;
     --block4-2gis-btn-x: 50%;
     --block4-2gis-btn-y: 32%;
     --block4-2gis-text-x: 50%;
     --block4-2gis-text-y: 38%;
-    --block4-2gis-text-size: 1.2rem;
+    --block4-2gis-text-size: 1.15rem;
     --block4-confirm-x: 50%;
     --block4-confirm-y: 45%;
-    --block4-confirm-size: 1.2rem;
+    --block4-confirm-size: 1.15rem;
     --block4-label-name-x: 50%;
     --block4-label-name-y: 52%;
-    --block4-label-name-size: 1rem;
+    --block4-label-name-size: 0.95rem;
     --block4-input-x: 50%;
     --block4-input-y: 58%;
     --block4-label-attend-x: 50%;
     --block4-label-attend-y: 65%;
-    --block4-label-attend-size: 1rem;
+    --block4-label-attend-size: 0.95rem;
     --block4-radios-x: 50%;
     --block4-radios-y: 74%;
     --block4-submit-x: 50%;
@@ -1258,86 +1259,51 @@ body {
     --block4-input-max-width: 280px;
   }
 
-  /* Блок 1: центрирование надписей на мобильных */
-  .block-hero__name--left,
-  .block-hero__name--right {
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .block-hero__name {
-    font-size: clamp(1.8rem, 6vw, 2.4rem);
-  }
-  .block-hero__sub {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-  }
+  .block-hero__name { font-size: 2.4rem; }
+  .block-hero__sub { font-size: 1.6rem; }
   .block-hero__date--month,
-  .block-hero__date--year {
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
-  }
-  .block-hero__date--day {
-    font-size: clamp(2.8rem, 18vw, 4rem);
-  }
+  .block-hero__date--year { font-size: 1.4rem; }
+  .block-hero__date--day { font-size: 3.2rem; }
 
-  /* Блок 2: разрешаем перенос текста, единый размер надписей */
   .block-invite__title,
   .block-invite__text {
     white-space: normal;
     text-align: center;
     max-width: 90%;
-    left: 50% !important;
   }
-  .block-invite__title--guests { font-size: 1.9rem; }
-  .block-invite__text--children { font-size: 1.2rem; }
-  .block-invite__title--nurdaulet { font-size: 1.7rem; }
-  .block-invite__text--pen { font-size: 1.3rem; }
-  .block-invite__title--araylym { font-size: 1.5rem; }
-  .block-invite__text--invitation { font-size: 1.2rem; }
-  .block-invite__text--hosts { font-size: 1.2rem; }
-  .block-invite__title--parents { font-size: 1.5rem; }
+  .block-invite__title--guests { font-size: 1.85rem; }
+  .block-invite__text--children { font-size: 1.15rem; }
+  .block-invite__title--nurdaulet { font-size: 1.6rem; }
+  .block-invite__text--pen { font-size: 1.2rem; }
+  .block-invite__title--araylym { font-size: 1.45rem; }
+  .block-invite__text--invitation { font-size: 1.15rem; }
+  .block-invite__text--hosts { font-size: 1.15rem; }
+  .block-invite__title--parents { font-size: 1.45rem; }
 
-  /* Блок 3: календарь меньше, подписи счётчика в одну строку */
   .block-event__calendar {
     max-width: 85vw;
     width: 85vw;
   }
-  .block-event__label--countdown-caption {
-    white-space: normal;
+  .block-event__label--countdown-caption { white-space: normal; }
+
+  .block-place__text--address { white-space: normal; }
+  .block-place__text--confirm {
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
     font-size: 1.1rem;
   }
-
-  /* Блок 4: подписи и форма по центру, фиксированные размеры */
-  .block-place__text--address {
-    white-space: normal;
-    font-size: 1.2rem;
-  }
-  .block-place__text--confirm {
-    left: 50% !important;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 90%;
-    max-width: 320px;
-    font-size: 1.15rem;
-  }
-  .block-place__text--2gis {
-    left: 50% !important;
-    text-align: center;
-  }
+  .block-place__text--2gis { text-align: center; }
   .block-place__label--name {
-    left: 50% !important;
     text-align: center;
     width: 90%;
-    max-width: 320px;
+    max-width: 300px;
   }
-  .block-place__label--attend {
-    left: 50% !important;
-    text-align: center;
-  }
-  .block-place__radios {
-    align-items: center;
-  }
+  .block-place__label--attend { text-align: center; }
+  .block-place__radios { align-items: center; }
 }
 
-/* Очень маленькие экраны (телефоны) */
+/* Маленькие телефоны — те же фиксированные размеры (без изменений от 768px) */
 @media (max-width: 480px) {
   :root {
     --block2-guests-y: 11%;
@@ -1352,11 +1318,9 @@ body {
     --block3-countdown-label-size: 0.9rem;
     --block4-input-max-width: 260px;
   }
-  .block-invite__title--guests { font-size: 1.6rem; }
-  .block-invite__title--nurdaulet { font-size: 1.5rem; }
-  .block-invite__title--araylym { font-size: 1.35rem; }
-  .block-invite__title--parents { font-size: 1.35rem; }
-  .block-event__countdown-item {
-    gap: 0.1em;
-  }
+  /* Размеры шрифтов те же — одинаковый вид на всех телефонах */
+  .block-invite__title--guests { font-size: 1.85rem; }
+  .block-invite__title--nurdaulet { font-size: 1.6rem; }
+  .block-invite__title--araylym { font-size: 1.45rem; }
+  .block-invite__title--parents { font-size: 1.45rem; }
 }
