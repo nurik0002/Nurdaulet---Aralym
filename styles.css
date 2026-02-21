@@ -1,0 +1,1180 @@
+/*
+  Блок 1 — герой с картинкой и надписями.
+  Регулировать местоположение: переменные в секции :root ниже.
+*/
+
+/* ========== Параметры расположения (регулируй здесь) ========== */
+:root {
+  /* Позиция "Нұрдәулет" — отступы от левого края и сверху (можно в % или px) */
+  --name-left-x: 10%;
+  --name-left-y: 25%;
+
+  /* Позиция "Арайлым" */
+  --name-right-x: 50%;
+  --name-right-y: 30%;
+
+  /* Позиция "пен" по вертикали (по горизонтали всегда по центру) */
+  --pen-x: 35%;
+  --pen-y: 30%;
+
+  /* Позиция "Үйлену тойы" по вертикали */
+  --event-x: 22%;
+  --event-y: 35%;
+
+  /* Блок даты внизу: месяц слева, день по центру, год справа */
+  --date-month-x: 17%;
+  --date-month-y: 72%;
+  --date-day-x: 54%;
+  --date-day-y: 72%;
+  --date-year-x: 64%;
+  --date-year-y: 72%;
+
+  /* ===== Блок 2: приглашение — позиции по вертикали и горизонтали ===== */
+  /* Заголовок "Құрметті қонақтар!" — сверху по центру */
+  --block2-guests-x: 50%;
+  --block2-guests-y: 17%;
+
+  /* Надпись "Сіз(дер)ді балаларымыз" — по центру */
+  --block2-children-x: 50%;
+  --block2-children-y: 30%;
+
+  /* Заголовок "Нұрдәулет" */
+  --block2-nurdaulet-x: 50%;
+  --block2-nurdaulet-y: 37%;
+
+  /* Надпись "пен" */
+  --block2-pen-x: 50%;
+  --block2-pen-y: 42%;
+
+  /* Заголовок "Арайлымның" */
+  --block2-araylym-x: 50%;
+  --block2-araylym-y: 47%;
+
+  /* Многострочная надпись приглашения */
+  --block2-invitation-x: 50%;
+  --block2-invitation-y: 61%;
+
+  /* "Той иелері:" */
+  --block2-hosts-x: 50%;
+  --block2-hosts-y: 77%;
+
+  /* Заголовок "Марат - Аманкүл" — внизу */
+  --block2-parents-x: 50%;
+  --block2-parents-y: 83%;
+
+  /* ===== Разделитель (board.png): расположение и размер ===== */
+  --divider-margin-top: -170px;
+  --divider-height: 300px;
+  --divider-scale: 1.3;
+
+  /* ===== Второй разделитель (board2.png): те же параметры, можно менять ===== */
+  --divider2-margin-top: -230px;
+  --divider2-height: 375px;
+  --divider2-scale: 1.3;
+
+  /* ===== Разделитель в конце сайта (pictures/board.png): поверх блока 4, расположение и размер ===== */
+  --divider-end-margin-top: -300px;
+  --divider-end-height: 470px;
+  --divider-end-scale: 1.3;
+
+  /* ===== Блок 3: Той салтанаты — позиции и размеры (регулируй здесь) ===== */
+  /* Заголовок "Той салтанаты" — сверху по центру */
+  --block3-title-x: 50%;
+  --block3-title-y: 14%;
+  --block3-title-size: clamp(2.6rem, 6.2vw, 4.2rem);
+
+  /* "Басталу уақыты" */
+  --block3-time-caption-x: 50%;
+  --block3-time-caption-y: 60%;
+  --block3-time-caption-size: clamp(1.4rem, 2.6vw, 2rem);
+
+  /* "14:00" */
+  --block3-time-value-x: 50%;
+  --block3-time-value-y: 66%;
+  --block3-time-value-size: clamp(3rem, 8vw, 4.5rem);
+
+  /* "Той салтанатына дейін" */
+  --block3-countdown-caption-x: 50%;
+  --block3-countdown-caption-y: 73%;
+  --block3-countdown-caption-size: clamp(1.4rem, 2.6vw, 2rem);
+
+  /* Обратный отсчёт: позиция каждой секции (дни, часы, минуты, секунды) — регулируй здесь */
+  --block3-countdown-days-x: 17%;
+  --block3-countdown-days-y: 82%;
+  --block3-countdown-hours-x: 39%;
+  --block3-countdown-hours-y: 82%;
+  --block3-countdown-minutes-x: 62%;
+  --block3-countdown-minutes-y: 82%;
+  --block3-countdown-seconds-x: 84%;
+  --block3-countdown-seconds-y: 82%;
+  /* Размер цифр (TT Ramillas) и подписей (Baker Signet BT) */
+  --block3-countdown-num-size: clamp(2.2rem, 5.2vw, 3.2rem);
+  --block3-countdown-label-size: clamp(1.3rem, 2.3vw, 1.6rem);
+
+  /* Календарь поверх картинки: позиция и размер */
+  --block3-calendar-width: 500%;
+  --block3-calendar-max-width: 850px;
+  --block3-calendar-x: 50%;
+  --block3-calendar-y: 47%;
+
+  /* ===== Блок 4: Мекен жайымыз — позиции и размеры (регулируй здесь) ===== */
+  /* Высота блока 4: увеличь значение (например 150vh, 200vh), чтобы картинка не срезалась */
+  --block4-min-height: 105vh;
+
+  /* Заголовок "Мекен жайымыз" — сверху по центру */
+  --block4-title-x: 50%;
+  --block4-title-y: 14%;
+  --block4-title-size: clamp(2.7rem, 6.1vw, 4.1rem);
+
+  /* Адрес (Қарағанды қаласы...) */
+  --block4-address-x: 50%;
+  --block4-address-y: 28%;
+  --block4-address-size: clamp(1.4rem, 1.8vw, 1.8rem);
+
+  /* Кнопка 2 ГИС: позиция и размер */
+  --block4-2gis-btn-x: 30%;
+  --block4-2gis-btn-y: 41%;
+  --block4-2gis-btn-width: 100px;
+  --block4-2gis-btn-height: 110px;
+
+  /* Надпись "2 ГИС сілтемесі" */
+  --block4-2gis-text-x: 56%;
+  --block4-2gis-text-y: 40%;
+  --block4-2gis-text-size: clamp(1.4rem, 2.4vw, 1.7rem);
+
+  /* "Тойға келуіңізді растауыңызды сұраймыз..." */
+  --block4-confirm-x: 46%;
+  --block4-confirm-y: 52%;
+  --block4-confirm-size: clamp(1.4rem, 2.3vw, 1.8rem);
+
+  /* Подпись к полю имени */
+  --block4-label-name-x: 69%;
+  --block4-label-name-y: 59%;
+  --block4-label-name-size: clamp(1rem, 1.7vw, 1.2rem);
+
+  /* Поле ввода имени: позиция, размер, обводка */
+  --block4-input-x: 50%;
+  --block4-input-y: 65%;
+  --block4-input-width: 100%;
+  --block4-input-max-width: 335px;
+  --block4-input-height: 44px;
+  --block4-input-border: 3px solid #335236;
+
+  /* "Тойға келесіз бе?" */
+  --block4-label-attend-x: 26%;
+  --block4-label-attend-y: 70%;
+  --block4-label-attend-size: clamp(1rem, 1.7vw, 1.2rem);
+
+  /* Группа радио-кнопок: позиция */
+  --block4-radios-x: 41%;
+  --block4-radios-y: 79%;
+  --block4-radio-border: 3px solid #335236;
+
+  /* Кнопка отправки формы */
+  --block4-submit-x: 73%;
+  --block4-submit-y: 79%;
+  --block4-submit-bg: #335236;
+  --block4-submit-color: #f5f5f5;
+
+  /* Сообщение об успехе отправки формы — расположение */
+  --block4-msg-success-x: 50%;
+  --block4-msg-success-y: 90%;
+  --block4-msg-success-bottom: auto;
+}
+
+/* ========== Шрифты ========== */
+@font-face {
+  font-family: "Baker Signet BT";
+  src: url("fonts/Baker_Signet_BT_Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Miama";
+  src: url("fonts/miama.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Ramillas";
+  src: url("fonts/TT_Ramillas_Trial_Variable_Roman.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+}
+
+/* ========== Сброс ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ========== Блок 1: герой ========== */
+.block-hero {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 90vh;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Главная картинка — заполняет пространство до границ, перекрывает блок 2 */
+.block-hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("pictures/1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: imageAppear 1.2s ease-out forwards;
+}
+
+/* Анимация появления картинки */
+@keyframes imageAppear {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Общие стили для надписей на картинке */
+.block-hero__name,
+.block-hero__date {
+  position: absolute;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+
+/* Общие стили для надписей "пен" и "Үйлену тойы" */
+.block-hero__sub {
+  position: absolute;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+
+/* ——— "Нұрдәулет" (слева, по центру по вертикали) ——— */
+.block-hero__name {
+  font-family: "Baker Signet BT", serif;
+  font-weight: 100;
+  font-size: clamp(2.4rem, 8vw, 3.2rem);;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  animation: textAppear 0.8s ease-out forwards;
+}
+
+.block-hero__name--left {
+  left: var(--name-left-x);
+  top: var(--name-left-y);
+  transform: translateY(-50%);
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+/* ——— "Арайлым" (справа, ниже первого) ——— */
+.block-hero__name--right {
+  left: var(--name-right-x);
+  top: var(--name-right-y);
+  transform: translateY(-50%);
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+/* ——— "пен" и "Үйлену тойы" (по центру, шрифт Miama) ——— */
+.block-hero__sub {
+  font-family: "Miama", serif;
+  font-weight: 100;
+  font-size: clamp(1.8em, 6vw, 2.8rem);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: textAppear 0.8s ease-out forwards;
+}
+
+.block-hero__sub--pen {
+  left: var(--pen-x);
+  top: var(--pen-y);
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.block-hero__sub--event {
+  top: var(--event-y);
+  left: var(--event-x);
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+/* ——— Дата: Маусым, 25, 2026 (появляются после заголовков) ——— */
+.block-hero__date {
+  animation: textAppear 0.8s ease-out forwards;
+  animation-delay: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+.block-hero__date--month {
+  font-family: "Baker Signet BT", serif;
+  font-weight: 100;
+  font-size: clamp(1.7rem, 5vw, 2.7rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  left: var(--date-month-x);
+  top: var(--date-month-y);
+  transform: translateY(-50%);
+}
+
+.block-hero__date--day {
+  font-family: "TT Ramillas", serif;
+  font-weight: 500; /* Medium */
+  font-size: clamp(3.7rem, 17vw, 6.5rem);
+  left: var(--date-day-x);
+  top: var(--date-day-y);
+  transform: translate(-50%, -50%);
+}
+
+.block-hero__date--year {
+  font-family: "TT Ramillas", serif;
+  font-weight: 100; /* Light */
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  left: var(--date-year-x);
+  top: var(--date-year-y);
+  transform: translateY(-50%);
+}
+
+/* Анимация появления текста */
+@keyframes textAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateY(0);
+  }
+}
+
+/* Для "25" центр по горизонтали учитывается в transform */
+.block-hero__date--day {
+  animation-name: textAppearCenter;
+}
+
+@keyframes textAppearCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+/* ========== Блок 2: приглашение (картинка 2.png и надписи) ========== */
+.block-invite {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 90vh;
+  margin-top: -11vh;
+  overflow: hidden;
+}
+
+/* Главная картинка — заполняет пространство до границ. Анимация при скролле. */
+.block-invite__image {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f0eb;
+  background-image: url("pictures/2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+.block-invite.is-visible .block-invite__image {
+  animation: block2ImageAppear 1.2s ease-out forwards;
+}
+
+@keyframes block2ImageAppear {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Общие стили: заголовки (h1). Анимация запускается при скролле, когда у секции есть класс is-visible. */
+.block-invite__title {
+  position: absolute;
+  white-space: nowrap;
+  margin: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #335236;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  font-family: "Baker Signet BT", serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  opacity: 0;
+}
+
+/* При появлении блока в зоне видимости — поочерёдная анимация заголовков и надписей */
+.block-invite.is-visible .block-invite__title {
+  animation: block2TextAppear 0.8s ease-out forwards;
+}
+.block-invite.is-visible .block-invite__text {
+  animation: block2TextAppear 0.8s ease-out forwards;
+}
+
+/* Общие стили: надписи (h3). Размер задаётся у каждого модификатора. */
+.block-invite__text {
+  position: absolute;
+  white-space: nowrap;
+  margin: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.0);
+  font-weight: 100;
+  text-align: center;
+  line-height: 1.5;
+  opacity: 0;
+}
+
+@keyframes block2TextAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+/* Поочерёдные задержки анимации и свой размер для каждой надписи/заголовка */
+.block-invite__title--guests {
+  font-size: clamp(2.4rem, 6vw, 3.5rem);
+  top: var(--block2-guests-y);
+  left: var(--block2-guests-x);
+  animation-delay: 0.3s;
+}
+.block-invite__text--children {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.9vw, 1.7rem);
+  top: var(--block2-children-y);
+  left: var(--block2-children-x);
+  animation-delay: 0.6s;
+}
+.block-invite__title--nurdaulet {
+  font-size: clamp(2rem, 5.5vw, 3.2rem);
+  top: var(--block2-nurdaulet-y);
+  left: var(--block2-nurdaulet-x);
+  animation-delay: 0.9s;
+}
+.block-invite__text--pen {
+  font-family: "Miama", serif;
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  top: var(--block2-pen-y);
+  left: var(--block2-pen-x);
+  animation-delay: 1.2s;
+}
+.block-invite__title--araylym {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  top: var(--block2-araylym-y);
+  left: var(--block2-araylym-x);
+  animation-delay: 1.5s;
+}
+.block-invite__text--invitation {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.9vw, 1.7rem);
+  top: var(--block2-invitation-y);
+  left: var(--block2-invitation-x);
+  animation-delay: 1.8s;
+}
+.block-invite__text--hosts {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3.2vw, 1.8rem);
+  top: var(--block2-hosts-y);
+  left: var(--block2-hosts-x);
+  animation-delay: 2.1s;
+}
+.block-invite__title--parents {
+  font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+  top: var(--block2-parents-y);
+  left: var(--block2-parents-x);
+  animation-delay: 2.4s;
+}
+
+/* Чтобы анимация не сбрасывалась после окончания */
+.block-invite__title,
+.block-invite__text {
+  animation-fill-mode: forwards;
+}
+
+/* ========== Разделитель внизу страницы (board.png) ========== */
+/* Управление: --divider-margin-top, --divider-height, --divider-scale в :root */
+/* Анимация появления при скролле */
+.divider-board {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  min-height: var(--divider-height);
+  height: var(--divider-height);
+  margin-top: var(--divider-margin-top);
+  overflow: visible;
+  background-image: url("pictures/board.png");
+  background-size: calc(100% * var(--divider-scale)) auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  transform: translateY(20px);
+}
+
+@keyframes dividerAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Второй разделитель (board2.png) ========== */
+/* Управление: --divider2-margin-top, --divider2-height, --divider2-scale в :root */
+.divider-board2 {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  min-height: var(--divider2-height);
+  height: var(--divider2-height);
+  margin-top: var(--divider2-margin-top);
+  overflow: visible;
+  background-image: url("pictures/board2.png");
+  background-size: calc(100% * var(--divider2-scale)) auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  transform: translateY(20px);
+}
+
+/* ========== Разделитель в конце сайта (pictures/board.png) — поверх блока 4 ========== */
+/* Управление: --divider-end-margin-top, --divider-end-height, --divider-end-scale в :root */
+/* pointer-events: none — чтобы клики проходили к форме и кнопкам в блоке 4 */
+.divider-board-end {
+  position: relative;
+  width: 100%;
+  min-height: var(--divider-end-height);
+  height: var(--divider-end-height);
+  margin-top: var(--divider-end-margin-top);
+  overflow: visible;
+  background-image: url("pictures/board.png");
+  background-size: calc(100% * var(--divider-end-scale)) auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+/* ========== Блок 3: Той салтанаты ========== */
+.block-event {
+  position: relative;
+  margin-top: -15vh;
+  z-index: 0;
+  width: 100%;
+  min-height: 105vh;
+  overflow: hidden;
+}
+
+/* Главная картинка — заполняет блок до границ. Появляется первой при скролле. */
+.block-event__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e8e4df;
+  background-image: url("pictures/3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+.block-event.is-visible .block-event__image {
+  animation: block3ImageAppear 1s ease-out forwards;
+}
+@keyframes block3ImageAppear {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Календарь поверх главной картинки — появляется после неё */
+.block-event__calendar {
+  position: absolute;
+  left: var(--block3-calendar-x);
+  top: var(--block3-calendar-y);
+  width: var(--block3-calendar-width);
+  max-width: var(--block3-calendar-max-width);
+  aspect-ratio: 1;
+  background-image: url("pictures/calendar.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.block-event.is-visible .block-event__calendar {
+  animation: block3TextAppear 0.7s ease-out 0.4s forwards;
+}
+@keyframes block3TextAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+/* Заголовок "Той салтанаты" — сверху по центру, зелёный, Baker Signet BT, прописные */
+.block-event__title--main {
+  position: absolute;
+  white-space: nowrap;
+  margin: 0;
+  left: var(--block3-title-x);
+  top: var(--block3-title-y);
+  transform: translate(-50%, -50%);
+  font-family: "Baker Signet BT", serif;
+  font-weight: 100;
+  font-size: var(--block3-title-size);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #f5f5f5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+.block-event.is-visible .block-event__title--main {
+  animation: block3TextAppear 0.7s ease-out 0.6s forwards;
+}
+
+/* Надпись "Басталу уақыты" — Gilroy Medium (h3) */
+.block-event__label--time-caption {
+  position: absolute;
+  margin: 0;
+  left: var(--block3-time-caption-x);
+  top: var(--block3-time-caption-y);
+  transform: translate(-50%, -50%);
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  font-size: var(--block3-time-caption-size);
+  color: #f5f5f5;
+  text-align: center;
+  opacity: 0;
+}
+.block-event.is-visible .block-event__label--time-caption {
+  animation: block3TextAppear 0.7s ease-out 0.9s forwards;
+}
+
+/* Время "14:00" — TT Ramillas Medium (h1) */
+.block-event__time--value {
+  position: absolute;
+  margin: 0;
+  left: var(--block3-time-value-x);
+  top: var(--block3-time-value-y);
+  transform: translate(-50%, -50%);
+  font-family: "TT Ramillas", serif;
+  font-weight: 500;
+  font-size: var(--block3-time-value-size);
+  color: #f5f5f5;
+  opacity: 0;
+}
+.block-event.is-visible .block-event__time--value {
+  animation: block3TextAppear 0.7s ease-out 1.1s forwards;
+}
+
+/* Надпись "Той салтанатына дейін" — Gilroy Medium (h3) */
+.block-event__label--countdown-caption {
+  position: absolute;
+  white-space: nowrap;
+  margin: 0;
+  left: var(--block3-countdown-caption-x);
+  top: var(--block3-countdown-caption-y);
+  transform: translate(-50%, -50%);
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  font-size: var(--block3-countdown-caption-size);
+  color: #f5f5f5;
+  text-align: center;
+  opacity: 0;
+}
+.block-event.is-visible .block-event__label--countdown-caption {
+  animation: block3TextAppear 0.7s ease-out 1.3s forwards;
+}
+
+/* Обратный отсчёт: контейнер и секции (дни, часы, минуты, секунды) */
+.block-event__countdown-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.block-event__countdown-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+  opacity: 0;
+}
+.block-event.is-visible .block-event__countdown-wrap .block-event__countdown-item {
+  animation: block3TextAppear 0.7s ease-out 1.5s forwards;
+}
+.block-event__countdown-item--days {
+  left: var(--block3-countdown-days-x);
+  top: var(--block3-countdown-days-y);
+  transform: translate(-50%, -50%);
+}
+.block-event__countdown-item--hours {
+  left: var(--block3-countdown-hours-x);
+  top: var(--block3-countdown-hours-y);
+  transform: translate(-50%, -50%);
+}
+.block-event__countdown-item--minutes {
+  left: var(--block3-countdown-minutes-x);
+  top: var(--block3-countdown-minutes-y);
+  transform: translate(-50%, -50%);
+}
+.block-event__countdown-item--seconds {
+  left: var(--block3-countdown-seconds-x);
+  top: var(--block3-countdown-seconds-y);
+  transform: translate(-50%, -50%);
+}
+/* Цифры счётчика — шрифт TT Ramillas, начертание Extra Bold */
+.block-event__countdown-num {
+  font-family: "TT Ramillas", serif;
+  font-weight: 800;
+  font-size: var(--block3-countdown-num-size);
+  color: #f5f5f5;
+  line-height: 1;
+}
+/* Подписи под цифрами (күн, сағат, минут, секунд) — шрифт Baker Signet BT */
+.block-event__countdown-label {
+  font-family: "Baker Signet BT", serif;
+  font-weight: normal;
+  font-size: var(--block3-countdown-label-size);
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Чтобы анимации не сбрасывались после окончания */
+.block-event__title--main,
+.block-event__label--time-caption,
+.block-event__time--value,
+.block-event__label--countdown-caption,
+.block-event__countdown-wrap .block-event__countdown-item,
+.block-event__calendar {
+  animation-fill-mode: forwards;
+}
+
+/* ========== Блок 4: Мекен жайымыз (картинка 4.png, адрес, форма) ========== */
+/* Высота блока рассчитывается по картинке: img в полную ширину, высота автоматически */
+.block-place {
+  position: relative;
+  margin-top: -25%;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Картинка в полную длину: 100% ширины, высота по пропорциям изображения */
+.block-place__image {
+  display: block;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+}
+
+.block-place.is-visible .block-place__image {
+  animation: block4ImageAppear 1.2s ease-out forwards;
+}
+
+@keyframes block4ImageAppear {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Поочерёдное появление заголовков и надписей */
+@keyframes block4TextAppear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+/* Заголовок "Мекен жайымыз" — по центру сверху, Baker Signet BT, белый, прописные */
+.block-place__title--main {
+  position: absolute;
+  white-space: nowrap;
+  margin: 0;
+  left: var(--block4-title-x);
+  top: var(--block4-title-y);
+  transform: translate(-50%, -50%);
+  font-family: "Baker Signet BT", serif;
+  font-weight: 100;
+  font-size: var(--block4-title-size);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #335236;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  opacity: 0;
+}
+.block-place.is-visible .block-place__title--main {
+  animation: block4TextAppear 0.7s ease-out 0.3s forwards;
+}
+
+/* Общие стили надписей блока 4 */
+.block-place__text {
+  position: absolute;
+  white-space: nowrap;
+  margin: 0;
+  left: var(--block4-address-x);
+  top: var(--block4-address-y);
+  transform: translate(-50%, -50%);
+  color: #000000;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.0);
+  text-align: center;
+  line-height: 1.3;
+  opacity: 0;
+  white-space: pre-line;
+}
+
+.block-place__text--address {
+  white-space: nowrap;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+  font-size: var(--block4-address-size);
+  top: var(--block4-address-y);
+  left: var(--block4-address-x);
+}
+.block-place.is-visible .block-place__text--address {
+  animation: block4TextAppear 0.7s ease-out 0.5s forwards;
+}
+
+/* Кнопка-ссылка 2 ГИС */
+.block-place__link-2gis {
+  position: absolute;
+  left: var(--block4-2gis-btn-x);
+  top: var(--block4-2gis-btn-y);
+  transform: translate(-50%, -50%);
+  display: block;
+  width: var(--block4-2gis-btn-width);
+  height: var(--block4-2gis-btn-height);
+  opacity: 0;
+}
+.block-place__link-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.block-place.is-visible .block-place__link-2gis {
+  animation: block4TextAppear 0.7s ease-out 0.7s forwards;
+}
+
+.block-place__text--2gis {
+  font-family: "Gilroy", sans-serif;
+  text-align: left;
+  font-weight: 600;
+  font-size: var(--block4-2gis-text-size);
+  top: var(--block4-2gis-text-y);
+  left: var(--block4-2gis-text-x);
+}
+.block-place.is-visible .block-place__text--2gis {
+  animation: block4TextAppear 0.7s ease-out 0.9s forwards;
+}
+
+.block-place__text--confirm {
+  font-family: "Gilroy", sans-serif;
+  text-align: left;
+  width: 300px;
+  font-weight: 400;
+  font-size: var(--block4-confirm-size);
+  top: var(--block4-confirm-y);
+  left: var(--block4-confirm-x);
+  white-space: normal;
+  max-width: 90%;
+}
+.block-place.is-visible .block-place__text--confirm {
+  animation: block4TextAppear 0.7s ease-out 1.1s forwards;
+}
+
+/* Форма: контейнер и элементы */
+.block-place__form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.block-place__form > * {
+  pointer-events: auto;
+}
+
+/* Подписи формы (h4) — Gilroy Regular */
+.block-place__label {
+  position: absolute;
+  margin: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Gilroy", sans-serif;
+  font-weight: 450;
+  color: #000000;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.0);
+  text-align: left;
+  line-height: 1.4;
+  opacity: 0;
+}
+
+.block-place__label--name {
+  width: 500px;
+  white-space: normal;
+  top: var(--block4-label-name-y);
+  left: var(--block4-label-name-x);
+  font-size: var(--block4-label-name-size);
+}
+.block-place.is-visible .block-place__label--name {
+  animation: block4TextAppear 0.7s ease-out 1.3s forwards;
+}
+
+/* Поле ввода имени: прозрачная заливка, зелёная обводка 3px */
+.block-place__input {
+  position: absolute;
+  left: var(--block4-input-x);
+  top: var(--block4-input-y);
+  transform: translate(-50%, -50%);
+  width: var(--block4-input-width);
+  max-width: var(--block4-input-max-width);
+  height: var(--block4-input-height);
+  padding: 0 12px;
+  background: transparent;
+  border: var(--block4-input-border);
+  border-radius: 50px;
+  font-family: "Gilroy", sans-serif;
+  font-size: 1rem;
+  color: #000000;
+  opacity: 0;
+  box-sizing: border-box;
+}
+.block-place__input::placeholder {
+  color: rgba(245, 245, 245, 0.7);
+}
+.block-place.is-visible .block-place__input--name {
+  animation: block4TextAppear 0.7s ease-out 1.5s forwards;
+}
+
+.block-place__label--attend {
+  top: var(--block4-label-attend-y);
+  left: var(--block4-label-attend-x);
+  font-size: var(--block4-label-attend-size);
+}
+.block-place.is-visible .block-place__label--attend {
+  animation: block4TextAppear 0.7s ease-out 1.7s forwards;
+}
+
+/* Группа радио-кнопок */
+.block-place__radios {
+  position: absolute;
+  left: var(--block4-radios-x);
+  top: var(--block4-radios-y);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: left;
+  opacity: 0;
+}
+.block-place.is-visible .block-place__radios {
+  animation: block4TextAppear 0.7s ease-out 1.9s forwards;
+}
+
+.block-place__radio-wrap {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Gilroy", sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.0);
+  padding: 10px 10px;
+  border: var(--block4-radio-border);
+  border-radius: 50px;
+  background: rgb(45, 80, 51, 0.5);
+}
+.block-place__radio {
+  width: 20px;
+  height: 20px;
+  accent-color: #335236;
+  flex-shrink: 0;
+}
+.block-place__radio:focus-visible,
+.block-place__radio-wrap:focus-within {
+  outline: 3px solid #335236;
+  outline-offset: 2px;
+}
+
+/* Кнопка отправки — круглая, с иконкой самолётика и текстом «Жіберу» */
+.block-place__submit {
+  position: absolute;
+  left: var(--block4-submit-x);
+  top: var(--block4-submit-y);
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100px;
+  height: 100px;
+  padding: 16px;
+  background: var(--block4-submit-bg);
+  color: var(--block4-submit-color);
+  border: none;
+  border-radius: 50%;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  cursor: pointer;
+  opacity: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.block-place__submit:hover {
+  filter: brightness(1.1);
+}
+.block-place__submit:focus-visible {
+  outline: 3px solid #335236;
+  outline-offset: 2px;
+}
+.block-place__submit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.block-place__submit-icon svg {
+  width: 26px;
+  height: 26px;
+}
+.block-place__submit-text {
+  white-space: nowrap;
+}
+.block-place.is-visible .block-place__submit {
+  animation: block4TextAppear 0.7s ease-out 2.1s forwards;
+}
+
+/* Сообщения об успехе/ошибке формы */
+.block-place__message {
+  position: absolute;
+  margin: 0;
+  padding: 10px 16px;
+  font-family: "Gilroy", sans-serif;
+  font-size: 0.95rem;
+  text-align: center;
+  border-radius: 6px;
+}
+/* Расположение: --block4-msg-success-x, --block4-msg-success-y в :root */
+.block-place__message--success {
+  left: var(--block4-msg-success-x);
+  top: var(--block4-msg-success-y);
+  bottom: var(--block4-msg-success-bottom);
+  transform: translate(-50%, -50%);
+  background: rgba(51, 82, 54, 0.9);
+  color: #f5f5f5;
+}
+.block-place__message--error {
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  background: rgba(120, 40, 40, 0.9);
+  color: #f5f5f5;
+}
+
+/* Чтобы анимации блока 4 не сбрасывались */
+.block-place__title--main,
+.block-place__text,
+.block-place__link-2gis,
+.block-place__label,
+.block-place__input--name,
+.block-place__radios,
+.block-place__submit {
+  animation-fill-mode: forwards;
+}

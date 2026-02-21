@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нұрдәулет пен Арайлым — Үйлену тойы</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Блок 1: главная картинка и надписи -->
+  <section class="block-hero">
+    <div class="block-hero__image"></div>
+
+    <h1 class="block-hero__name block-hero__name--left">Нұрдәулет</h1>
+    <h1 class="block-hero__name block-hero__name--right">Арайлым</h1>
+
+    <h2 class="block-hero__sub block-hero__sub--pen">пен</h2>
+    <h2 class="block-hero__sub block-hero__sub--event">Үйлену тойы</h2>
+
+    <h2 class="block-hero__date block-hero__date--month">Маусым</h2>
+    <h1 class="block-hero__date block-hero__date--day">25</h1>
+    <h2 class="block-hero__date block-hero__date--year">2026</h2>
+  </section>
+
+  <!-- Блок 2: приглашение (картинка 2.png и надписи) -->
+  <section class="block-invite">
+    <div class="block-invite__image"></div>
+
+    <h1 class="block-invite__title block-invite__title--guests">Құрметті қонақтар!</h1>
+    <h3 class="block-invite__text block-invite__text--children">Сіз(дер)ді балаларымыз</h3>
+
+    <h1 class="block-invite__title block-invite__title--nurdaulet">Нұрдәулет</h1>
+    <h3 class="block-invite__text block-invite__text--pen">пен</h3>
+
+    <h1 class="block-invite__title block-invite__title--araylym">Арайлымның</h1>
+    <h3 class="block-invite__text block-invite__text--invitation">
+      үйлену тойына<br>
+      арналған салтанатты<br>
+      ақ дастарханымыздың<br>
+      қадірлі қонағы<br>
+      болуға шақырамыз!
+    </h3>
+
+    <h3 class="block-invite__text block-invite__text--hosts">Той иелері:</h3>
+    <h1 class="block-invite__title block-invite__title--parents">Марат - Аманкүл</h1>
+  </section>
+
+  <!-- Разделитель внизу страницы -->
+  <div class="divider-board" role="img" aria-label="Декоративный разделитель"></div>
+
+  <!-- Блок 3: Той салтанаты (картинка 3.png, календарь, заголовки, обратный отсчёт) -->
+  <section class="block-event">
+    <div class="block-event__image"></div>
+    <div class="block-event__calendar"></div>
+
+    <h1 class="block-event__title block-event__title--main">Той салтанаты</h1>
+
+    <h3 class="block-event__label block-event__label--time-caption">Басталу уақыты</h3>
+    <h1 class="block-event__time block-event__time--value">14:00</h1>
+
+    <h3 class="block-event__label block-event__label--countdown-caption">Той салтанатына дейін</h3>
+
+    <div class="block-event__countdown-wrap" aria-live="polite">
+      <div class="block-event__countdown-item block-event__countdown-item--days">
+        <span class="block-event__countdown-num" id="countdown-days">0</span>
+        <span class="block-event__countdown-label">күн</span>
+      </div>
+      <div class="block-event__countdown-item block-event__countdown-item--hours">
+        <span class="block-event__countdown-num" id="countdown-hours">00</span>
+        <span class="block-event__countdown-label">сағат</span>
+      </div>
+      <div class="block-event__countdown-item block-event__countdown-item--minutes">
+        <span class="block-event__countdown-num" id="countdown-minutes">00</span>
+        <span class="block-event__countdown-label">минут</span>
+      </div>
+      <div class="block-event__countdown-item block-event__countdown-item--seconds">
+        <span class="block-event__countdown-num" id="countdown-seconds">00</span>
+        <span class="block-event__countdown-label">секунд</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Второй разделитель (board2.png) -->
+  <div class="divider-board2" role="img" aria-label="Декоративный разделитель"></div>
+
+  <!-- Блок 4: Мекен жайымыз (картинка 4.png, адрес, форма подтверждения) -->
+  <section class="block-place" id="block-place">
+    <img class="block-place__image" src="pictures/4.png" alt="">
+
+    <h1 class="block-place__title block-place__title--main">Мекен жайымыз</h1>
+
+    <h3 class="block-place__text block-place__text--address">
+      Қарағанды қаласы,<br>
+      Бұхар жырау даңғылы, 111<br>
+      "Шаңырақ" Банкет залы
+    </h3>
+
+    <a class="block-place__link-2gis" href="https://go.2gis.com/gRpmV" target="_blank" rel="noopener noreferrer" aria-label="2 ГИС сілтемесі">
+      <img src="pictures/click.png" alt="" class="block-place__link-img">
+    </a>
+    <h3 class="block-place__text block-place__text--2gis">2 ГИС<br>сілтемесі</h3>
+
+    <h3 class="block-place__text block-place__text--confirm">Тойға келуіңізді растауыңызды сұраймыз</h3>
+
+    <form class="block-place__form" id="block-place-form" action="https://script.google.com/macros/s/AKfycbyrzSdPaWa2CkvJfVdSmN8LP6Kx094vFDasdq0m12TZ6GBAczoNkoFC__7cJuswrETdRw/exec" method="POST">
+      <h4 class="block-place__label block-place__label--name">Аты-жөніңізді жазыңыз<br>(Жұбыңызбен келсеңіз атыңызды бірге жазыңыз)</h4>
+      <input type="text" name="guestName" class="block-place__input block-place__input--name" placeholder="Аты-жөніңіз" required aria-label="Аты-жөніңізді жазыңыз">
+
+      <h4 class="block-place__label block-place__label--attend">Тойға келесіз бе?</h4>
+      <div class="block-place__radios">
+        <label class="block-place__radio-wrap">
+          <input type="radio" name="attend" value="yes" class="block-place__radio" required>
+          <span class="block-place__radio-text">Әрине келемін</span>
+        </label>
+        <label class="block-place__radio-wrap">
+          <input type="radio" name="attend" value="no" class="block-place__radio">
+          <span class="block-place__radio-text">Өкінішке орай келе алмаймын</span>
+        </label>
+      </div>
+
+      <button type="submit" class="block-place__submit" aria-label="Жіберу">
+        <span class="block-place__submit-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+        </span>
+        <span class="block-place__submit-text">Жіберу</span>
+      </button>
+    </form>
+
+    <p class="block-place__message block-place__message--success" id="block-place-success" aria-live="polite" hidden>Рақмет! Сіздің жауабыңыз жіберілді.</p>
+    <p class="block-place__message block-place__message--error" id="block-place-error" aria-live="polite" hidden>Жіберу кезінде қате. Қайта көріңіз.</p>
+  </section>
+
+  <!-- Разделитель в конце сайта (board.png) -->
+  <div class="divider-board-end" role="img" aria-label="Декоративный разделитель"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
