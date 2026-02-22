@@ -52,14 +52,15 @@
   --place-2gis-text-x: 56%;
   --place-2gis-text-y: 40%;
   --place-confirm-y: 52%;
+  --place-confirm-x: 45%;
   --place-label-name-x: 69%;
   --place-label-name-y: 59%;
   --place-input-y: 65%;
-  --place-input-max-w: 335px;
-  --place-label-attend-x: 26%;
-  --place-label-attend-y: 70%;
-  --place-radios-x: 41%;
-  --place-radios-y: 79%;
+  --place-input-max-w: 340px;
+  --place-label-attend-x: 32%;
+  --place-label-attend-y: 71%;
+  --place-radios-x: 40%;
+  --place-radios-y: 81%;
   --place-submit-x: 73%;
   --place-submit-y: 79%;
   --place-msg-success-y: 90%;
@@ -611,6 +612,7 @@ z-index: 1;
   position: relative;
   width: 100%;
   overflow: hidden;
+  transform: translateY(-42%);
 }
 
 .block-place__image-wrap {
@@ -712,7 +714,7 @@ z-index: 1;
   transform: translate(-50%, -50%);
   font-family: "Baker Signet BT", serif;
   font-weight: 100;
-  font-size: clamp(2.7rem, 6.1vw, 4.1rem);
+  font-size: clamp(2.3rem, 10vw, 3.6rem);
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: #335236;
@@ -733,8 +735,8 @@ z-index: 1;
 
 .block-place__text--address {
   font-family: "Gilroy", sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 5.5vw, 2.3rem);
   top: var(--place-address-y);
   white-space: nowrap;
 }
@@ -766,11 +768,12 @@ z-index: 1;
 
 .block-place__text--confirm {
   font-family: "Gilroy", sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.4rem, 2.3vw, 1.8rem);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.3vw, 1.8rem);
   top: var(--place-confirm-y);
+  left: var(--place-confirm-x);
   width: 300px;
-  max-width: 90%;
+  max-width: 100%;
   white-space: normal;
   text-align: left;
 }
@@ -837,7 +840,7 @@ z-index: 1;
 .block-place__label--attend {
   top: var(--place-label-attend-y);
   left: var(--place-label-attend-x);
-  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  font-size: clamp(1.5rem, 2.3vw, 1.8rem);
 }
 
 .block-place__radios {
