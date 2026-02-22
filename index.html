@@ -9,7 +9,9 @@
 <body>
   <!-- Блок 1: главная картинка и надписи -->
   <section class="block-hero">
-    <div class="block-hero__image"></div>
+    <div class="block-hero__image-wrap">
+      <img class="block-hero__image" src="pictures/1.png" alt="Нұрдәулет пен Арайлым">
+    </div>
 
     <h1 class="block-hero__name block-hero__name--left">Нұрдәулет</h1>
     <h1 class="block-hero__name block-hero__name--right">Арайлым</h1>
@@ -24,7 +26,9 @@
 
   <!-- Блок 2: приглашение (картинка 2.png и надписи) -->
   <section class="block-invite">
-    <div class="block-invite__image"></div>
+    <div class="block-invite__image-wrap">
+      <img class="block-invite__image" src="pictures/2.png" alt="Приглашение">
+    </div>
 
     <h1 class="block-invite__title block-invite__title--guests">Құрметті қонақтар!</h1>
     <h3 class="block-invite__text block-invite__text--children">Сіз(дер)ді балаларымыз</h3>
@@ -46,12 +50,18 @@
   </section>
 
   <!-- Разделитель внизу страницы -->
-  <div class="divider-board" role="img" aria-label="Декоративный разделитель"></div>
+  <div class="divider-board" role="img" aria-label="Декоративный разделитель">
+    <img src="pictures/board.png" alt="">
+  </div>
 
   <!-- Блок 3: Той салтанаты (картинка 3.png, календарь, заголовки, обратный отсчёт) -->
   <section class="block-event">
-    <div class="block-event__image"></div>
-    <div class="block-event__calendar"></div>
+    <div class="block-event__image-wrap">
+      <img class="block-event__image" src="pictures/3.png" alt="Той салтанаты">
+    </div>
+    <div class="block-event__calendar-wrap">
+      <img class="block-event__calendar" src="pictures/calendar.png" alt="">
+    </div>
 
     <h1 class="block-event__title block-event__title--main">Той салтанаты</h1>
 
@@ -81,11 +91,15 @@
   </section>
 
   <!-- Второй разделитель (board2.png) -->
-  <div class="divider-board2" role="img" aria-label="Декоративный разделитель"></div>
+  <div class="divider-board2" role="img" aria-label="Декоративный разделитель">
+    <img src="pictures/board2.png" alt="">
+  </div>
 
   <!-- Блок 4: Мекен жайымыз (картинка 4.png, адрес, форма подтверждения) -->
   <section class="block-place" id="block-place">
-    <img class="block-place__image" src="pictures/4.png" alt="">
+    <div class="block-place__image-wrap">
+      <img class="block-place__image" src="pictures/4.png" alt="Мекен жайы">
+    </div>
 
     <h1 class="block-place__title block-place__title--main">Мекен жайымыз</h1>
 
@@ -96,7 +110,7 @@
     </h3>
 
     <a class="block-place__link-2gis" href="https://go.2gis.com/gRpmV" target="_blank" rel="noopener noreferrer" aria-label="2 ГИС сілтемесі">
-      <img src="pictures/click.png" alt="" class="block-place__link-img">
+      <img src="pictures/click.png" alt="2 ГИС ашу" class="block-place__link-img">
     </a>
     <h3 class="block-place__text block-place__text--2gis">2 ГИС<br>сілтемесі</h3>
 
@@ -131,7 +145,9 @@
   </section>
 
   <!-- Разделитель в конце сайта (board.png) -->
-  <div class="divider-board-end" role="img" aria-label="Декоративный разделитель"></div>
+  <div class="divider-board-end" role="img" aria-label="Декоративный разделитель">
+    <img src="pictures/board.png" alt="">
+  </div>
 
   <script src="script.js"></script>
 </body>

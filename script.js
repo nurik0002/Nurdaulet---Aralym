@@ -1,15 +1,16 @@
-/*
-  Скролл-анимации: заголовки и надписи появляются, когда блок попадает в зону видимости.
-  Обратный отсчёт до даты свадьбы.
-*/
-
+/**
+ * Сайт-приглашение на свадьбу.
+ * — Скролл-анимации: блоки получают класс is-visible при появлении в зоне видимости.
+ * — Обратный отсчёт до даты свадьбы (25.06.2026, 14:00).
+ * — Форма подтверждения: отправка в Google Apps Script.
+ */
 (function () {
   "use strict";
 
-  /* ——— Настройки появления при скролле ——— */
+  /* ——— Intersection Observer: появление блоков при скролле ——— */
   var observerOptions = {
     root: null,
-    rootMargin: "0px 0px -15% 0px", // срабатывает чуть раньше, когда блок почти влез в экран
+    rootMargin: "0px 0px -15% 0px",
     threshold: 0.1
   };
 
@@ -23,20 +24,12 @@
   }
 
   var observer = new IntersectionObserver(addVisibleClass, observerOptions);
+  [".block-invite", ".block-event", ".block-place"].forEach(function (sel) {
+    var el = document.querySelector(sel);
+    if (el) observer.observe(el);
+  });
 
-  /* Наблюдаем блок 2 (приглашение) */
-  var blockInvite = document.querySelector(".block-invite");
-  if (blockInvite) observer.observe(blockInvite);
-
-  /* Наблюдаем блок 3 (той салтанаты) */
-  var blockEvent = document.querySelector(".block-event");
-  if (blockEvent) observer.observe(blockEvent);
-
-  /* Наблюдаем блок 4 (мекен жайымыз) */
-  var blockPlace = document.querySelector(".block-place");
-  if (blockPlace) observer.observe(blockPlace);
-
-  /* ——— Форма блока 4: отправка на Google Apps Script Webhook (как в проекте Приглашение) ——— */
+  /* ——— Форма подтверждения (блок 4) ——— */
   var FEEDBACK_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyrzSdPaWa2CkvJfVdSmN8LP6Kx094vFDasdq0m12TZ6GBAczoNkoFC__7cJuswrETdRw/exec";
 
   var formPlace = document.getElementById("block-place-form");
@@ -98,7 +91,7 @@
     });
   }
 
-  /* ——— Обратный отсчёт до 25 июня 2026 ——— */
+  /* ——— Обратный отсчёт до 25 июня 2026, 14:00 ——— */
   var elDays = document.getElementById("countdown-days");
   var elHours = document.getElementById("countdown-hours");
   var elMinutes = document.getElementById("countdown-minutes");
