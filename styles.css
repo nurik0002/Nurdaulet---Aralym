@@ -5,54 +5,62 @@
 
 /* ========== Параметры расположения (регулируй здесь) ========== */
 :root {
-  /* Позиция "Нұрдәулет" — отступы от левого края и сверху. vh = одинаково на всех устройствах */
+  /* Позиция "Нұрдәулет" — отступы от левого края и сверху (можно в % или px) */
   --name-left-x: 10%;
-  --name-left-y: 22.5vh; /* 25% от 90vh блока */
+  --name-left-y: 25%;
 
   /* Позиция "Арайлым" */
   --name-right-x: 50%;
-  --name-right-y: 27vh;
+  --name-right-y: 30%;
 
   /* Позиция "пен" по вертикали (по горизонтали всегда по центру) */
   --pen-x: 35%;
-  --pen-y: 27vh;
+  --pen-y: 30%;
 
   /* Позиция "Үйлену тойы" по вертикали */
   --event-x: 22%;
-  --event-y: 31.5vh;
+  --event-y: 35%;
 
   /* Блок даты внизу: месяц слева, день по центру, год справа */
   --date-month-x: 17%;
-  --date-month-y: 64.8vh; /* 72% от 90vh */
+  --date-month-y: 72%;
   --date-day-x: 54%;
-  --date-day-y: 64.8vh;
+  --date-day-y: 72%;
   --date-year-x: 64%;
-  --date-year-y: 64.8vh;
+  --date-year-y: 72%;
 
-  /* ===== Блок 2: приглашение — vh для одинакового положения на всех экранах (блок 90vh) ===== */
+  /* ===== Блок 2: приглашение — позиции по вертикали и горизонтали ===== */
+  /* Заголовок "Құрметті қонақтар!" — сверху по центру */
   --block2-guests-x: 50%;
-  --block2-guests-y: 15.3vh; /* 17% от 90vh */
+  --block2-guests-y: 17%;
 
+  /* Надпись "Сіз(дер)ді балаларымыз" — по центру */
   --block2-children-x: 50%;
-  --block2-children-y: 27vh;
+  --block2-children-y: 30%;
 
+  /* Заголовок "Нұрдәулет" */
   --block2-nurdaulet-x: 50%;
-  --block2-nurdaulet-y: 33.3vh;
+  --block2-nurdaulet-y: 37%;
 
+  /* Надпись "пен" */
   --block2-pen-x: 50%;
-  --block2-pen-y: 37.8vh;
+  --block2-pen-y: 42%;
 
+  /* Заголовок "Арайлымның" */
   --block2-araylym-x: 50%;
-  --block2-araylym-y: 42.3vh;
+  --block2-araylym-y: 47%;
 
+  /* Многострочная надпись приглашения */
   --block2-invitation-x: 50%;
-  --block2-invitation-y: 54.9vh;
+  --block2-invitation-y: 61%;
 
+  /* "Той иелері:" */
   --block2-hosts-x: 50%;
-  --block2-hosts-y: 69.3vh;
+  --block2-hosts-y: 77%;
 
+  /* Заголовок "Марат - Аманкүл" — внизу */
   --block2-parents-x: 50%;
-  --block2-parents-y: 74.7vh; /* 83% от 90vh */
+  --block2-parents-y: 83%;
 
   /* ===== Разделитель (board.png): расположение и размер ===== */
   --divider-margin-top: -170px;
@@ -72,33 +80,33 @@
   /* ===== Блок 3: Той салтанаты — позиции и размеры (регулируй здесь) ===== */
   /* Заголовок "Той салтанаты" — сверху по центру */
   --block3-title-x: 50%;
-  --block3-title-y: 14.7vh;
+  --block3-title-y: 14%;
   --block3-title-size: clamp(2.6rem, 6.2vw, 4.2rem);
 
   /* "Басталу уақыты" */
   --block3-time-caption-x: 50%;
-  --block3-time-caption-y: 63vh;
+  --block3-time-caption-y: 60%;
   --block3-time-caption-size: clamp(1.4rem, 2.6vw, 2rem);
 
   /* "14:00" */
   --block3-time-value-x: 50%;
-  --block3-time-value-y: 69.3vh;
+  --block3-time-value-y: 66%;
   --block3-time-value-size: clamp(3rem, 8vw, 4.5rem);
 
   /* "Той салтанатына дейін" */
   --block3-countdown-caption-x: 50%;
-  --block3-countdown-caption-y: 76.7vh;
+  --block3-countdown-caption-y: 73%;
   --block3-countdown-caption-size: clamp(1.4rem, 2.6vw, 2rem);
 
   /* Обратный отсчёт: позиция каждой секции (дни, часы, минуты, секунды) — регулируй здесь */
   --block3-countdown-days-x: 17%;
-  --block3-countdown-days-y: 86.1vh;
+  --block3-countdown-days-y: 82%;
   --block3-countdown-hours-x: 39%;
-  --block3-countdown-hours-y: 86.1vh;
+  --block3-countdown-hours-y: 82%;
   --block3-countdown-minutes-x: 62%;
-  --block3-countdown-minutes-y: 86.1vh;
+  --block3-countdown-minutes-y: 82%;
   --block3-countdown-seconds-x: 84%;
-  --block3-countdown-seconds-y: 86.1vh;
+  --block3-countdown-seconds-y: 82%;
   /* Размер цифр (TT Ramillas) и подписей (Baker Signet BT) */
   --block3-countdown-num-size: clamp(2.2rem, 5.2vw, 3.2rem);
   --block3-countdown-label-size: clamp(1.3rem, 2.3vw, 1.6rem);
@@ -107,7 +115,7 @@
   --block3-calendar-width: 500%;
   --block3-calendar-max-width: 850px;
   --block3-calendar-x: 50%;
-  --block3-calendar-y: 49.4vh;
+  --block3-calendar-y: 47%;
 
   /* ===== Блок 4: Мекен жайымыз — позиции и размеры (регулируй здесь) ===== */
   /* Высота блока 4: увеличь значение (например 150vh, 200vh), чтобы картинка не срезалась */
@@ -175,13 +183,11 @@
 }
 
 /* ========== Шрифты ========== */
-/* font-display: swap — текст сразу виден (запасной шрифт), затем подставляется свой — меньше «мигания» на разных устройствах */
 @font-face {
   font-family: "Baker Signet BT";
   src: url("fonts/Baker_Signet_BT_Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -189,7 +195,6 @@
   src: url("fonts/Gilroy-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -197,7 +202,6 @@
   src: url("fonts/Gilroy-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -205,7 +209,6 @@
   src: url("fonts/miama.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -213,7 +216,6 @@
   src: url("fonts/TT_Ramillas_Trial_Variable_Roman.ttf") format("truetype");
   font-weight: 300 900;
   font-style: normal;
-  font-display: swap;
 }
 
 /* ========== Сброс ========== */
@@ -227,11 +229,6 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  overflow-x: hidden; /* ширина по экрану, без горизонтального скролла */
-  /* Более одинаковое отображение шрифтов в разных браузерах и ОС */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 /* ========== Блок 1: герой ========== */
@@ -1180,231 +1177,4 @@ body {
 .block-place__radios,
 .block-place__submit {
   animation-fill-mode: forwards;
-}
-
-/* ========== Мобильные: размеры шрифтов по ширине экрана ========== */
-/* До 429px — шрифты мельче (маленький телефон). 430px–768px — крупнее (iPhone 14 Pro Max и др.) */
-@media (max-width: 768px) {
-  :root {
-    /* Блок 1 — vh для одинакового положения на всех экранах */
-    --name-left-x: 10%;
-    --name-left-y: 18vh;
-    --name-right-x: 53%;
-    --name-right-y: 22.5vh;
-    --pen-x: 35%;
-    --pen-y: 22.5vh;
-    --event-x: 23%;
-    --event-y: 27vh;
-    --date-month-x: 20%;
-    --date-month-y: 64.8vh;
-    --date-day-x: 54%;
-    --date-day-y: 64.8vh;
-    --date-year-x: 64%;
-    --date-year-y: 64.8vh;
-
-    /* Блок 2 — vh */
-    --block2-guests-y: 10.8vh;
-    --block2-children-y: 21.6vh;
-    --block2-nurdaulet-y: 28.8vh;
-    --block2-pen-y: 34.2vh;
-    --block2-araylym-y: 39.6vh;
-    --block2-invitation-y: 50.4vh;
-    --block2-hosts-y: 64.8vh;
-    --block2-parents-y: 72vh;
-
-    /* Блок 3 — vh и rem для размеров */
-    --block3-title-y: 10.5vh;
-    --block3-time-caption-y: 54.6vh;
-    --block3-time-value-y: 60.9vh;
-    --block3-countdown-caption-y: 68.25vh;
-    --block3-countdown-days-y: 81.9vh;
-    --block3-countdown-hours-y: 81.9vh;
-    --block3-countdown-minutes-y: 81.9vh;
-    --block3-countdown-seconds-y: 81.9vh;
-    --block3-countdown-days-x: 18%;
-    --block3-countdown-hours-x: 40%;
-    --block3-countdown-minutes-x: 62%;
-    --block3-countdown-seconds-x: 84%;
-    --block3-calendar-y: 39.9vh;
-    --block3-title-size: 2rem;
-    --block3-time-caption-size: 1.25rem;
-    --block3-time-value-size: 2.5rem;
-    --block3-countdown-caption-size: 1.15rem;
-    --block3-countdown-num-size: 1.7rem;
-    --block3-countdown-label-size: 0.95rem;
-
-    /* Блок 4 — только rem/px, без vh */
-    --block4-min-height: 37.5rem;
-    --block4-title-y: 10%;
-    --block4-title-size: 2rem;
-    --block4-address-y: 22%;
-    --block4-address-size: 1.15rem;
-    --block4-2gis-btn-x: 50%;
-    --block4-2gis-btn-y: 32%;
-    --block4-2gis-btn-width: 5rem;
-    --block4-2gis-btn-height: 5.5rem;
-    --block4-2gis-text-x: 50%;
-    --block4-2gis-text-y: 38%;
-    --block4-2gis-text-size: 1.15rem;
-    --block4-confirm-x: 50%;
-    --block4-confirm-y: 45%;
-    --block4-confirm-size: 1.15rem;
-    --block4-label-name-x: 50%;
-    --block4-label-name-y: 52%;
-    --block4-label-name-size: 0.95rem;
-    --block4-input-x: 50%;
-    --block4-input-y: 58%;
-    --block4-input-height: 2.75rem;
-    --block4-input-max-width: 280px;
-    --block4-label-attend-x: 50%;
-    --block4-label-attend-y: 65%;
-    --block4-label-attend-size: 0.95rem;
-    --block4-radios-x: 50%;
-    --block4-radios-y: 74%;
-    --block4-submit-x: 50%;
-    --block4-submit-y: 85%;
-    --block4-submit-width: 5.5rem;
-    --block4-submit-height: 5.5rem;
-    --block4-msg-success-y: 92%;
-  }
-
-  .block-hero__name { font-size: 2rem; }
-  .block-hero__sub { font-size: 1.5rem; }
-  .block-hero__date--month,
-  .block-hero__date--year { font-size: 1.4rem; }
-  .block-hero__date--day { font-size: 3.2rem; }
-
-  .block-invite__title,
-  .block-invite__text {
-    white-space: normal;
-    text-align: center;
-    max-width: 90%;
-  }
-  .block-invite__title--guests { font-size: 1.85rem; }
-  .block-invite__text--children { font-size: 1.15rem; }
-  .block-invite__title--nurdaulet { font-size: 1.6rem; }
-  .block-invite__text--pen { font-size: 1.2rem; }
-  .block-invite__title--araylym { font-size: 1.45rem; }
-  .block-invite__text--invitation { font-size: 1.15rem; }
-  .block-invite__text--hosts { font-size: 1.15rem; }
-  .block-invite__title--parents { font-size: 1.45rem; }
-
-  .block-event__calendar {
-    width: 20rem;
-    max-width: 20rem;
-  }
-  .block-event__label--countdown-caption { white-space: normal; }
-
-  .block-place__text--address {
-    white-space: normal;
-    font-size: 1.15rem;
-  }
-  .block-place__text--confirm {
-    text-align: center;
-    width: 18.75rem;
-    max-width: 18.75rem;
-    font-size: 1.1rem;
-  }
-  .block-place__text--2gis { text-align: center; font-size: 1.15rem; }
-  .block-place__label--name {
-    text-align: center;
-    width: 90%;
-    max-width: 18.75rem;
-    font-size: 0.95rem;
-  }
-  .block-place__label--attend { text-align: center; font-size: 0.95rem; }
-  .block-place__radios { align-items: center; }
-  .block-place__radio-wrap { font-size: 1.05rem; }
-  .block-place__submit {
-    font-size: 1.1rem;
-    width: 5.5rem;
-    height: 5.5rem;
-  }
-  .block-place__message--success,
-  .block-place__message--error { font-size: 0.95rem; }
-}
-
-/* Крупные телефоны (iPhone 14 Pro Max 430px и шире) — шрифты побольше */
-@media (min-width: 430px) and (max-width: 768px) {
-  :root {
-    --block3-title-size: 2.25rem;
-    --block3-time-caption-size: 1.4rem;
-    --block3-time-value-size: 2.85rem;
-    --block3-countdown-caption-size: 1.3rem;
-    --block3-countdown-num-size: 1.9rem;
-    --block3-countdown-label-size: 1.05rem;
-    --block4-title-size: 2.25rem;
-    --block4-address-size: 1.3rem;
-    --block4-2gis-text-size: 1.3rem;
-    --block4-confirm-size: 1.3rem;
-    --block4-label-name-size: 1.05rem;
-    --block4-label-attend-size: 1.05rem;
-  }
-  .block-hero__name { font-size: 2.25rem; }
-  .block-hero__sub { font-size: 1.7rem; }
-  .block-hero__date--month,
-  .block-hero__date--year { font-size: 1.55rem; }
-  .block-hero__date--day { font-size: 3.6rem; }
-  .block-invite__title--guests { font-size: 2.1rem; }
-  .block-invite__text--children { font-size: 1.3rem; }
-  .block-invite__title--nurdaulet { font-size: 1.8rem; }
-  .block-invite__text--pen { font-size: 1.35rem; }
-  .block-invite__title--araylym { font-size: 1.65rem; }
-  .block-invite__text--invitation { font-size: 1.3rem; }
-  .block-invite__text--hosts { font-size: 1.3rem; }
-  .block-invite__title--parents { font-size: 1.65rem; }
-  .block-place__text--confirm { font-size: 1.3rem; }
-  .block-place__radio-wrap { font-size: 1.2rem; }
-  .block-place__submit { font-size: 1.25rem; }
-}
-
-/* Маленькие телефоны (уже 429px) — шрифты помельче */
-@media (max-width: 429px) {
-  :root {
-    --block3-title-size: 1.75rem;
-    --block3-time-caption-size: 1.1rem;
-    --block3-time-value-size: 2.2rem;
-    --block3-countdown-caption-size: 1rem;
-    --block3-countdown-num-size: 1.5rem;
-    --block3-countdown-label-size: 0.85rem;
-    --block4-title-size: 1.75rem;
-    --block4-address-size: 1.05rem;
-    --block4-2gis-text-size: 1.05rem;
-    --block4-confirm-size: 1.05rem;
-    --block4-label-name-size: 0.85rem;
-    --block4-label-attend-size: 0.85rem;
-  }
-  .block-hero__name { font-size: 1.75rem; }
-  .block-hero__sub { font-size: 1.35rem; }
-  .block-hero__date--month,
-  .block-hero__date--year { font-size: 1.25rem; }
-  .block-hero__date--day { font-size: 2.85rem; }
-  .block-invite__title--guests { font-size: 1.65rem; }
-  .block-invite__text--children { font-size: 1.05rem; }
-  .block-invite__title--nurdaulet { font-size: 1.45rem; }
-  .block-invite__text--pen { font-size: 1.1rem; }
-  .block-invite__title--araylym { font-size: 1.3rem; }
-  .block-invite__text--invitation { font-size: 1.05rem; }
-  .block-invite__text--hosts { font-size: 1.05rem; }
-  .block-invite__title--parents { font-size: 1.3rem; }
-  .block-place__text--confirm { font-size: 1.05rem; }
-  .block-place__radio-wrap { font-size: 0.95rem; }
-  .block-place__submit { font-size: 1rem; }
-}
-
-/* Маленькие телефоны — позиции и ширина поля формы */
-@media (max-width: 480px) {
-  :root {
-    --block2-guests-y: 9.9vh;
-    --block2-children-y: 19.8vh;
-    --block2-nurdaulet-y: 27vh;
-    --block2-pen-y: 32.4vh;
-    --block2-araylym-y: 37.8vh;
-    --block2-invitation-y: 49.5vh;
-    --block2-hosts-y: 63vh;
-    --block2-parents-y: 71.1vh;
-    --block3-countdown-num-size: 1.5rem;
-    --block3-countdown-label-size: 0.9rem;
-    --block4-input-max-width: 260px;
-  }
 }
