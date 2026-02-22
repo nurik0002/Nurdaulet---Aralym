@@ -32,15 +32,15 @@
   --invite-parents-y: 83%;
 
   /* Блок 3: позиции и размеры */
-  --event-title-y: 14%;
-  --event-time-caption-y: 60%;
-  --event-time-value-y: 66%;
-  --event-countdown-caption-y: 73%;
+  --event-title-y: 10%;
+  --event-time-caption-y: 63%;
+  --event-time-value-y: 69%;
+  --event-countdown-caption-y: 77%;
   --event-countdown-days-x: 17%;
   --event-countdown-hours-x: 39%;
   --event-countdown-minutes-x: 62%;
   --event-countdown-seconds-x: 84%;
-  --event-countdown-y: 82%;
+  --event-countdown-y: 87%;
   --event-calendar-y: 47%;
   --event-calendar-max-w: 850px;
 
@@ -352,13 +352,30 @@ body {
 
 /* ========== Разделители ========== */
 .divider-board,
-.divider-board2,
 .divider-board-end {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 1;
+  aspect-ratio: 1366 / 768;
   overflow: hidden;
+  object-fit: cover;
+  transform: scale(1.2) translateY(-40%);
+  z-index: 1;
 }
+
+.divider-board2{
+position: relative;
+width: 100%;
+aspect-ratio: 1366 / 768;
+overflow: hidden;
+object-fit: cover;
+transform: scale(1.2) translateY(-105%);
+z-index: 1;
+}
+
+
+
+
+
 
 .divider-board img,
 .divider-board2 img,
@@ -385,6 +402,8 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
+  transform: translateY(-23%);
+  z-index: 0;
 }
 
 .block-event__image-wrap {
@@ -488,11 +507,11 @@ body {
   transform: translate(-50%, -50%);
   font-family: "Baker Signet BT", serif;
   font-weight: 100;
-  font-size: clamp(2.6rem, 6.2vw, 4.2rem);
+  font-size: clamp(2rem, 9.5vw, 4rem);
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: #f5f5f5;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
 }
 
@@ -516,8 +535,8 @@ body {
   top: var(--event-time-value-y);
   transform: translate(-50%, -50%);
   font-family: "TT Ramillas", serif;
-  font-weight: 500;
-  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 11vw, 3.4rem);
   color: #f5f5f5;
 }
 
@@ -573,7 +592,7 @@ body {
 .block-event__countdown-num {
   font-family: "TT Ramillas", serif;
   font-weight: 800;
-  font-size: clamp(2.2rem, 5.2vw, 3.2rem);
+  font-size: clamp(1.6rem, 9vw, 2.6rem);
   color: #f5f5f5;
   line-height: 1;
 }
@@ -581,7 +600,7 @@ body {
 .block-event__countdown-label {
   font-family: "Baker Signet BT", serif;
   font-weight: normal;
-  font-size: clamp(1.3rem, 2.3vw, 1.6rem);
+  font-size: clamp(1rem, 4.5vw, 2rem);
   color: #f5f5f5;
   text-transform: uppercase;
   letter-spacing: 0.02em;
