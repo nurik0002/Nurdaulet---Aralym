@@ -57,13 +57,13 @@
   --place-label-name-y: 59%;
   --place-input-y: 65%;
   --place-input-max-w: 340px;
-  --place-label-attend-x: 32%;
+  --place-label-attend-x: 34%;
   --place-label-attend-y: 71%;
-  --place-radios-x: 40%;
+  --place-radios-x: 36%;
   --place-radios-y: 81%;
-  --place-submit-x: 73%;
-  --place-submit-y: 79%;
-  --place-msg-success-y: 90%;
+  --place-submit-x: 79%;
+  --place-submit-y: 81%;
+  --place-msg-success-y: 92%;
 }
 
 /* ========== Шрифты ========== */
@@ -373,8 +373,15 @@ transform: scale(1.2) translateY(-105%);
 z-index: 1;
 }
 
-
-
+.divider-board-end{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1366 / 768;
+  overflow: hidden;
+  object-fit: cover;
+  transform: scale(1.2) translateY(-180%);
+  z-index: 1;
+  }
 
 
 
@@ -862,9 +869,10 @@ z-index: 1;
   color: #000;
   font-family: "Gilroy", sans-serif;
   font-weight: 500;
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-size: clamp(1rem, 2vw, 1.4rem);
   padding: 10px;
   border: 3px solid #335236;
+  width: 220px;
   border-radius: 50px;
   background: rgba(45, 80, 51, 0.5);
 }
@@ -891,8 +899,8 @@ z-index: 1;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   padding: 16px;
   background: #335236;
   color: #f5f5f5;
