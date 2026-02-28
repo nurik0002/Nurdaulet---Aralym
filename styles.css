@@ -148,6 +148,30 @@ body {
   margin: 0;
   color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes heroTextAppearY {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateY(0);
+  }
+}
+
+@keyframes heroTextAppearCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
 }
 
 .block-hero__name {
@@ -162,12 +186,14 @@ body {
   left: var(--hero-name-left-x);
   top: var(--hero-name-left-y);
   transform: translateY(-50%);
+  animation: heroTextAppearY 0.8s ease-out 0.2s forwards;
 }
 
 .block-hero__name--right {
   left: var(--hero-name-right-x);
   top: var(--hero-name-right-y);
   transform: translateY(-50%);
+  animation: heroTextAppearY 0.8s ease-out 0.5s forwards;
 }
 
 .block-hero__sub {
@@ -181,11 +207,13 @@ body {
 .block-hero__sub--pen {
   left: var(--hero-pen-x);
   top: var(--hero-pen-y);
+  animation: heroTextAppearCenter 0.8s ease-out 0.8s forwards;
 }
 
 .block-hero__sub--event {
   left: var(--hero-event-x);
   top: var(--hero-event-y);
+  animation: heroTextAppearCenter 0.8s ease-out 1s forwards;
 }
 
 .block-hero__date--month {
@@ -197,6 +225,7 @@ body {
   left: var(--hero-date-month-x);
   top: var(--hero-date-month-y);
   transform: translateY(-50%);
+  animation: heroTextAppearY 0.8s ease-out 1.2s forwards;
 }
 
 .block-hero__date--day {
@@ -206,6 +235,7 @@ body {
   left: var(--hero-date-day-x);
   top: var(--hero-date-day-y);
   transform: translate(-50%, -50%);
+  animation: heroTextAppearCenter 0.8s ease-out 1.4s forwards;
 }
 
 .block-hero__date--year {
@@ -215,6 +245,7 @@ body {
   left: var(--hero-date-year-x);
   top: var(--hero-date-year-y);
   transform: translateY(-50%);
+  animation: heroTextAppearY 0.8s ease-out 1.6s forwards;
 }
 
 /* ========== Блок 2: приглашение ========== */
