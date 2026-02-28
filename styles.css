@@ -52,14 +52,14 @@
   --place-2gis-text-x: 56%;
   --place-2gis-text-y: 40%;
   --place-confirm-y: 52%;
-  --place-confirm-x: 45%;
+  --place-confirm-x: 47%;
   --place-label-name-x: 69%;
   --place-label-name-y: 59%;
   --place-input-y: 65%;
-  --place-input-max-w: 340px;
+  --place-input-max-w: 335px;
   --place-label-attend-x: 34%;
   --place-label-attend-y: 71%;
-  --place-radios-x: 36%;
+  --place-radios-x: 32%;
   --place-radios-y: 81%;
   --place-submit-x: 79%;
   --place-submit-y: 81%;
@@ -356,66 +356,12 @@ body {
   animation-delay: 2.4s;
 }
 
-/* ========== Разделители ========== */
-.divider-board,
-.divider-board-end {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1366 / 768;
-  overflow: hidden;
-  object-fit: cover;
-  transform: scale(1.2) translateY(-40%);
-  z-index: 1;
-}
-
-.divider-board2{
-position: relative;
-width: 100%;
-aspect-ratio: 1366 / 768;
-overflow: hidden;
-object-fit: cover;
-transform: scale(1.2) translateY(-105%);
-z-index: 1;
-}
-
-.divider-board-end{
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1366 / 768;
-  overflow: hidden;
-  object-fit: cover;
-  transform: scale(1.2) translateY(-180%);
-  z-index: 1;
-  }
-
-
-
-.divider-board img,
-.divider-board2 img,
-.divider-board-end img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.divider-board-end {
-  pointer-events: none;
-}
-
-.divider-board-end img {
-  pointer-events: none;
-}
-
 /* ========== Блок 3: Той салтанаты ========== */
 .block-event {
   position: relative;
   width: 100%;
   overflow: hidden;
-  transform: translateY(-23%);
+  margin-top: -45%;
   z-index: 0;
 }
 
@@ -624,7 +570,7 @@ z-index: 1;
   position: relative;
   width: 100%;
   overflow: hidden;
-  transform: translateY(-42%);
+  margin-top: -30%;
 }
 
 .block-place__image-wrap {
@@ -966,4 +912,57 @@ z-index: 1;
   transform: translateX(-50%);
   background: rgba(120, 40, 40, 0.9);
   color: #f5f5f5;
+}
+
+/* ========== Разделители ========== */
+.divider-board {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1366 / 768;
+  overflow: hidden;
+  object-fit: cover;
+  transform: scale(1.2) translateY(-40%);
+  z-index: 1;
+}
+
+.divider-board2{
+position: relative;
+width: 100%;
+aspect-ratio: 1366 / 768;
+overflow: hidden;
+object-fit: cover;
+transform: scale(1.2);
+margin-top: -24%;
+z-index: 1;
+}
+
+.divider-board-end {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1366 / 768;
+  overflow: hidden;
+  transform: scale(1.2);
+  margin-top: -20%;
+}
+
+
+
+.divider-board img,
+.divider-board2 img,
+.divider-board-end img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.divider-board-end {
+  pointer-events: none;
+}
+
+.divider-board-end img {
+  pointer-events: none;
 }
