@@ -52,7 +52,7 @@
   --place-2gis-text-x: 56%;
   --place-2gis-text-y: 40%;
   --place-confirm-y: 52%;
-  --place-confirm-x: 47%;
+  --place-confirm-x: 48%;
   --place-label-name-x: 69%;
   --place-label-name-y: 59%;
   --place-input-y: 65%;
@@ -120,68 +120,6 @@ body {
   min-height: 100%;
 }
 
-/* ========== Управление фоновой музыкой ========== */
-.music-toggle-btn {
-  position: fixed;
-  /* Позиция кнопки на десктопе: меняйте top/right */
-  top: 16px;
-  right: 16px;
-  z-index: 1200;
-  width: 52px;
-  height: 52px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  background: rgba(35, 55, 38, 0.62);
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.music-toggle-btn:hover {
-  background: rgba(35, 55, 38, 0.78);
-  transform: translateY(-1px);
-}
-
-.music-toggle-btn:active {
-  transform: translateY(0);
-}
-
-.music-toggle-btn:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
-.music-toggle-btn.is-muted {
-  background: rgba(30, 30, 30, 0.58);
-}
-
-.music-toggle-btn__icon {
-  font-size: 1.4rem;
-  line-height: 1;
-  font-family: "Gilroy", sans-serif;
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .music-toggle-btn {
-    /* Позиция кнопки на мобильных: меняйте top/right */
-    top: 12px;
-    right: 12px;
-    width: 48px;
-    height: 48px;
-  }
-
-  .music-toggle-btn__icon {
-    font-size: 1.25rem;
-  }
-}
-
 /* ========== Блок 1: герой ========== */
 .block-hero {
   position: relative;
@@ -210,30 +148,6 @@ body {
   margin: 0;
   color: #fff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-
-@keyframes heroTextAppearY {
-  from {
-    opacity: 0;
-    transform: translateY(-50%) translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-50%) translateY(0);
-  }
-}
-
-@keyframes heroTextAppearCenter {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) translateY(0);
-  }
 }
 
 .block-hero__name {
@@ -248,14 +162,12 @@ body {
   left: var(--hero-name-left-x);
   top: var(--hero-name-left-y);
   transform: translateY(-50%);
-  animation: heroTextAppearY 0.8s ease-out 0.2s forwards;
 }
 
 .block-hero__name--right {
   left: var(--hero-name-right-x);
   top: var(--hero-name-right-y);
   transform: translateY(-50%);
-  animation: heroTextAppearY 0.8s ease-out 0.5s forwards;
 }
 
 .block-hero__sub {
@@ -269,13 +181,11 @@ body {
 .block-hero__sub--pen {
   left: var(--hero-pen-x);
   top: var(--hero-pen-y);
-  animation: heroTextAppearCenter 0.8s ease-out 0.8s forwards;
 }
 
 .block-hero__sub--event {
   left: var(--hero-event-x);
   top: var(--hero-event-y);
-  animation: heroTextAppearCenter 0.8s ease-out 1s forwards;
 }
 
 .block-hero__date--month {
@@ -287,7 +197,6 @@ body {
   left: var(--hero-date-month-x);
   top: var(--hero-date-month-y);
   transform: translateY(-50%);
-  animation: heroTextAppearY 0.8s ease-out 1.2s forwards;
 }
 
 .block-hero__date--day {
@@ -297,7 +206,6 @@ body {
   left: var(--hero-date-day-x);
   top: var(--hero-date-day-y);
   transform: translate(-50%, -50%);
-  animation: heroTextAppearCenter 0.8s ease-out 1.4s forwards;
 }
 
 .block-hero__date--year {
@@ -307,7 +215,6 @@ body {
   left: var(--hero-date-year-x);
   top: var(--hero-date-year-y);
   transform: translateY(-50%);
-  animation: heroTextAppearY 0.8s ease-out 1.6s forwards;
 }
 
 /* ========== Блок 2: приглашение ========== */
@@ -663,7 +570,7 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-top: -30%;
+  margin-top: -55%;
 }
 
 .block-place__image-wrap {
@@ -1024,19 +931,19 @@ width: 100%;
 aspect-ratio: 1366 / 768;
 overflow: hidden;
 object-fit: cover;
-transform: scale(1.2);
-margin-top: -24%;
+transform: scale(1.2) translateY(-40%);
 z-index: 1;
 }
 
-.divider-board-end {
+.divider-board-end{
   position: relative;
   width: 100%;
   aspect-ratio: 1366 / 768;
   overflow: hidden;
-  transform: scale(1.2);
-  margin-top: -20%;
-}
+  object-fit: cover;
+  transform: scale(1.2) translateY(-30%);
+  z-index: 1;
+  }
 
 
 
