@@ -29,6 +29,191 @@
     if (el) observer.observe(el);
   });
 
+  /* ——— Декоративные листья: полёт вправо с лёгким отклонением ——— */
+  var LEAF_TOTAL_COUNT = 40;
+  var LEAF_MIN_SIZE = 18;
+  var LEAF_MAX_SIZE = 56;
+  var LEAF_MIN_SPEED = 35; /* px/s */
+  var LEAF_MAX_SPEED = 90; /* px/s */
+  var LEAF_MIN_AMPLITUDE = 8;
+  var LEAF_MAX_AMPLITUDE = 24;
+
+  var leafImageSources = [
+    "pictures/leafs/l1.png",
+    "pictures/leafs/l2.png",
+    "pictures/leafs/l3.png",
+    "pictures/leafs/l4.png",
+    "pictures/leafs/l5.png"
+  ];
+  var leafLayers = Array.prototype.slice.call(document.querySelectorAll(".leaf-layer"));
+  var leaves = [];
+  var leafAnimationId = 0;
+  var lastLeafTimestamp = 0;
+  var resizeTimer = 0;
+
+  function randomRange(min, max) {
+    return min + Math.random() * (max - min);
+  }
+
+  function randomInt(min, max) {
+    return Math.floor(randomRange(min, max + 1));
+  }
+
+  function distributeLeaves(totalCount, layers) {
+    var heights = [];
+    var totalHeight = 0;
+    var baseCounts = [];
+    var fractions = [];
+    var remaining = totalCount;
+    var i;
+
+    for (i = 0; i < layers.length; i += 1) {
+      var height = Math.max(layers[i].clientHeight, 1);
+      heights.push(height);
+      totalHeight += height;
+    }
+
+    for (i = 0; i < layers.length; i += 1) {
+      var exactCount = totalCount * (heights[i] / totalHeight);
+      var floorCount = Math.floor(exactCount);
+      baseCounts.push(floorCount);
+      fractions.push({ index: i, value: exactCount - floorCount });
+      remaining -= floorCount;
+    }
+
+    fractions.sort(function (a, b) {
+      return b.value - a.value;
+    });
+
+    for (i = 0; i < remaining; i += 1) {
+      baseCounts[fractions[i % fractions.length].index] += 1;
+    }
+
+    return baseCounts;
+  }
+
+  function resetLeaf(leaf, startAnywhere) {
+    var layerWidth = Math.max(leaf.layer.clientWidth, 1);
+    var layerHeight = Math.max(leaf.layer.clientHeight, 1);
+    leaf.size = randomRange(LEAF_MIN_SIZE, LEAF_MAX_SIZE);
+    leaf.speed = randomRange(LEAF_MIN_SPEED, LEAF_MAX_SPEED);
+    leaf.amplitude = randomRange(LEAF_MIN_AMPLITUDE, LEAF_MAX_AMPLITUDE);
+    leaf.waveFrequency = randomRange(0.6, 1.3);
+    leaf.phase = randomRange(0, Math.PI * 2);
+    leaf.rotationBase = randomRange(-20, 20);
+    leaf.rotationSpeed = randomRange(-8, 8);
+    leaf.time = 0;
+    leaf.baseY = randomRange(0, layerHeight);
+    leaf.x = startAnywhere
+      ? randomRange(-leaf.size, layerWidth + leaf.size)
+      : randomRange(-leaf.size * 2, -leaf.size);
+
+    leaf.el.style.setProperty("--leaf-size", leaf.size.toFixed(1) + "px");
+    leaf.el.style.setProperty("--leaf-opacity", randomRange(0.62, 0.95).toFixed(2));
+    leaf.el.style.transform = "translate3d(" + leaf.x + "px," + leaf.baseY + "px,0)";
+  }
+
+  function createLeaf(layer) {
+    var leafEl = document.createElement("span");
+    leafEl.className = "leaf";
+
+    var imgEl = document.createElement("img");
+    imgEl.src = leafImageSources[randomInt(0, leafImageSources.length - 1)];
+    imgEl.alt = "";
+    imgEl.loading = "lazy";
+
+    leafEl.appendChild(imgEl);
+    layer.appendChild(leafEl);
+
+    var leaf = {
+      layer: layer,
+      el: leafEl,
+      x: 0,
+      baseY: 0,
+      size: 0,
+      speed: 0,
+      amplitude: 0,
+      waveFrequency: 0,
+      phase: 0,
+      rotationBase: 0,
+      rotationSpeed: 0,
+      time: 0
+    };
+
+    resetLeaf(leaf, true);
+    return leaf;
+  }
+
+  function destroyLeaves() {
+    if (leafAnimationId) {
+      cancelAnimationFrame(leafAnimationId);
+      leafAnimationId = 0;
+    }
+    leafLayers.forEach(function (layer) {
+      layer.innerHTML = "";
+    });
+    leaves = [];
+    lastLeafTimestamp = 0;
+  }
+
+  function animateLeaves(timestamp) {
+    if (!lastLeafTimestamp) lastLeafTimestamp = timestamp;
+    var delta = Math.min((timestamp - lastLeafTimestamp) / 1000, 0.05);
+    lastLeafTimestamp = timestamp;
+
+    leaves.forEach(function (leaf) {
+      var layerWidth = Math.max(leaf.layer.clientWidth, 1);
+      var layerHeight = Math.max(leaf.layer.clientHeight, 1);
+
+      leaf.time += delta;
+      leaf.x += leaf.speed * delta;
+
+      if (leaf.x > layerWidth + leaf.size * 1.5) {
+        resetLeaf(leaf, false);
+      }
+
+      var y = leaf.baseY + Math.sin(leaf.time * leaf.waveFrequency + leaf.phase) * leaf.amplitude;
+      var rotation = leaf.rotationBase + Math.sin(leaf.time + leaf.phase) * 8 + leaf.rotationSpeed * leaf.time;
+
+      if (y < -leaf.size) y = -leaf.size;
+      if (y > layerHeight + leaf.size) y = layerHeight + leaf.size;
+
+      leaf.el.style.transform =
+        "translate3d(" +
+        leaf.x.toFixed(2) +
+        "px," +
+        y.toFixed(2) +
+        "px,0) rotate(" +
+        rotation.toFixed(2) +
+        "deg)";
+    });
+
+    leafAnimationId = requestAnimationFrame(animateLeaves);
+  }
+
+  function initLeaves() {
+    if (!leafLayers.length) return;
+    destroyLeaves();
+
+    var countsByLayer = distributeLeaves(LEAF_TOTAL_COUNT, leafLayers);
+    leafLayers.forEach(function (layer, layerIndex) {
+      var count = countsByLayer[layerIndex];
+      for (var i = 0; i < count; i += 1) {
+        leaves.push(createLeaf(layer));
+      }
+    });
+
+    leafAnimationId = requestAnimationFrame(animateLeaves);
+  }
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    initLeaves();
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(initLeaves, 180);
+    });
+  }
+
   /* ——— Фоновая музыка (автозапуск + сохранение выбора) ——— */
   var MUSIC_STORAGE_KEY = "weddingMusicEnabled";
   var bgMusic = document.getElementById("bg-music");

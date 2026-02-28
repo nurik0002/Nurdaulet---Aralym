@@ -120,6 +120,46 @@ body {
   min-height: 100%;
 }
 
+/* ========== Декоративные листья ========== */
+.block-hero__image-wrap,
+.block-invite__image-wrap,
+.block-event__image-wrap,
+.block-place__image-wrap {
+  z-index: 0;
+}
+
+.leaf-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.leaf {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--leaf-size, 32px);
+  height: var(--leaf-size, 32px);
+  opacity: var(--leaf-opacity, 0.8);
+  will-change: transform;
+}
+
+.leaf img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.block-hero > :not(.block-hero__image-wrap):not(.leaf-layer),
+.block-invite > :not(.block-invite__image-wrap):not(.leaf-layer),
+.block-event > :not(.block-event__image-wrap):not(.leaf-layer),
+.block-place > :not(.block-place__image-wrap):not(.leaf-layer) {
+  z-index: 2;
+}
+
 /* ========== Блок 1: герой ========== */
 .block-hero {
   position: relative;
