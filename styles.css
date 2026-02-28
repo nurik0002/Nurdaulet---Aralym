@@ -969,7 +969,7 @@ z-index: 1;
   z-index: 1000;
   width: 45px;
   height: 45px;
-  border: 2px solid #5091419a;
+  border: 4px solid #5091419a;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   color: #5091419a;
@@ -997,16 +997,30 @@ z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  line-height: 1;
 }
 
-/* По ТЗ: когда звук включен — иконка play */
+.music-toggle__icon::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  display: block;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* Когда звук включен — показываем иконку pause */
 .music-toggle.is-playing .music-toggle__icon::before {
-  content: "▶";
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4.5' y='4' width='6.5' height='16' rx='2.4' ry='2.4'/%3E%3Crect x='13' y='4' width='6.5' height='16' rx='2.4' ry='2.4'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4.5' y='4' width='6.5' height='16' rx='2.4' ry='2.4'/%3E%3Crect x='13' y='4' width='6.5' height='16' rx='2.4' ry='2.4'/%3E%3C/svg%3E");
 }
 
-/* По ТЗ: когда звук выключен — иконка pause */
+/* Когда звук выключен — показываем иконку play */
 .music-toggle:not(.is-playing) .music-toggle__icon::before {
-  content: "⏸";
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 4.5C6 3.78 6.78 3.33 7.42 3.7L19.5 10.7C20.16 11.08 20.16 11.92 19.5 12.3L7.42 19.3C6.78 19.67 6 19.22 6 18.5V4.5Z'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 4.5C6 3.78 6.78 3.33 7.42 3.7L19.5 10.7C20.16 11.08 20.16 11.92 19.5 12.3L7.42 19.3C6.78 19.67 6 19.22 6 18.5V4.5Z'/%3E%3C/svg%3E");
 }
