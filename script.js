@@ -29,6 +29,82 @@
     if (el) observer.observe(el);
   });
 
+  /* ——— Фоновая музыка (автозапуск + сохранение выбора) ——— */
+  var MUSIC_STORAGE_KEY = "weddingMusicEnabled";
+  var bgMusic = document.getElementById("bg-music");
+  var musicToggleBtn = document.getElementById("music-toggle-btn");
+
+  function getSavedMusicPreference() {
+    return localStorage.getItem(MUSIC_STORAGE_KEY) === "true";
+  }
+
+  function saveMusicPreference(isEnabled) {
+    localStorage.setItem(MUSIC_STORAGE_KEY, String(isEnabled));
+  }
+
+  function updateMusicButton(isPlaying) {
+    if (!musicToggleBtn) return;
+    musicToggleBtn.classList.toggle("is-playing", isPlaying);
+    musicToggleBtn.setAttribute(
+      "aria-label",
+      isPlaying ? "Выключить музыку" : "Включить музыку"
+    );
+    musicToggleBtn.setAttribute(
+      "title",
+      isPlaying ? "Выключить музыку" : "Включить музыку"
+    );
+  }
+
+  function playMusic() {
+    if (!bgMusic) return Promise.reject(new Error("Audio element not found"));
+    return bgMusic.play().then(function () {
+      saveMusicPreference(true);
+      updateMusicButton(true);
+    });
+  }
+
+  function pauseMusic() {
+    if (!bgMusic) return;
+    bgMusic.pause();
+    saveMusicPreference(false);
+    updateMusicButton(false);
+  }
+
+  function enableMusicOnFirstInteraction() {
+    function playOnInteraction() {
+      if (!getSavedMusicPreference()) return;
+      playMusic().catch(function () {
+        /* Браузер может все еще блокировать звук — оставляем кнопку для ручного включения */
+      });
+    }
+
+    document.addEventListener("click", playOnInteraction, { once: true });
+    document.addEventListener("touchstart", playOnInteraction, { once: true });
+  }
+
+  if (bgMusic && musicToggleBtn) {
+    updateMusicButton(!bgMusic.paused);
+
+    if (getSavedMusicPreference()) {
+      playMusic().catch(function () {
+        /* Адаптация вашего кода: если автозапуск заблокирован, ждём первое взаимодействие */
+        enableMusicOnFirstInteraction();
+      });
+    } else {
+      updateMusicButton(false);
+    }
+
+    musicToggleBtn.addEventListener("click", function () {
+      if (bgMusic.paused) {
+        playMusic().catch(function () {
+          updateMusicButton(false);
+        });
+      } else {
+        pauseMusic();
+      }
+    });
+  }
+
   /* ——— Форма подтверждения (блок 4) ——— */
   var FEEDBACK_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyrzSdPaWa2CkvJfVdSmN8LP6Kx094vFDasdq0m12TZ6GBAczoNkoFC__7cJuswrETdRw/exec";
 

@@ -149,6 +149,23 @@
     <img src="pictures/board.png" alt="">
   </div>
 
+  <!-- Фоновая музыка сайта -->
+  <audio id="bg-music" loop preload="auto">
+    <!-- Укажите ваш файл музыки (пример: audio/wedding-music.mp3) -->
+    <source src="audio/ALEM - MAHABBAT Official Music Video (mp3cut.net).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Кнопка включения/выключения музыки -->
+  <button
+    id="music-toggle-btn"
+    class="music-toggle"
+    type="button"
+    aria-label="Включить музыку"
+    title="Музыка"
+  >
+    <span class="music-toggle__icon" aria-hidden="true"></span>
+  </button>
+
   <script src="script.js"></script>
 </body>
 </html>
