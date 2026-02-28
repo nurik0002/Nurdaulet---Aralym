@@ -120,6 +120,68 @@ body {
   min-height: 100%;
 }
 
+/* ========== Управление фоновой музыкой ========== */
+.music-toggle-btn {
+  position: fixed;
+  /* Позиция кнопки на десктопе: меняйте top/right */
+  top: 16px;
+  right: 16px;
+  z-index: 1200;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(35, 55, 38, 0.62);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.music-toggle-btn:hover {
+  background: rgba(35, 55, 38, 0.78);
+  transform: translateY(-1px);
+}
+
+.music-toggle-btn:active {
+  transform: translateY(0);
+}
+
+.music-toggle-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.music-toggle-btn.is-muted {
+  background: rgba(30, 30, 30, 0.58);
+}
+
+.music-toggle-btn__icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .music-toggle-btn {
+    /* Позиция кнопки на мобильных: меняйте top/right */
+    top: 12px;
+    right: 12px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .music-toggle-btn__icon {
+    font-size: 1.25rem;
+  }
+}
+
 /* ========== Блок 1: герой ========== */
 .block-hero {
   position: relative;
