@@ -565,7 +565,7 @@ body {
   width: min(100%, 800px);
   aspect-ratio: 1;
   max-height: 58%;
-  background: #fff;
+  background: #335236;
   border-radius: clamp(12px, 3.5vw, 20px);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
   display: flex;
@@ -595,7 +595,7 @@ body {
   font-size: clamp(3rem, 5.5vw, 6rem);
   text-transform: none;
   letter-spacing: 0.02em;
-  color: #335236;
+  color: #ffffff;
   text-align: center;
   line-height: 1.15;
   text-shadow: none;
