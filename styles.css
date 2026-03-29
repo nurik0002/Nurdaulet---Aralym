@@ -394,6 +394,235 @@ body {
   animation-delay: 2.4s;
 }
 
+/* ——— Персонализация (конверт + имя по ?name=) ——— */
+.invite-personal-sentinel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.block-invite > .invite-personal {
+  z-index: 12;
+}
+
+.invite-personal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 4vw, 28px);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.55s ease;
+}
+
+.invite-personal.is-active {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.invite-personal.is-closing {
+  pointer-events: none;
+  opacity: 0;
+  visibility: visible;
+}
+
+.invite-personal__close {
+  position: absolute;
+  top: clamp(200px, 2vw, 20px);
+  right: clamp(50px, 2vw, 20px);
+  z-index: 20;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #335236;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invite-personal__close::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+}
+
+.invite-personal__close-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  font-weight: 300;
+  position: relative;
+  z-index: 5;
+}
+
+.invite-personal__close:hover {
+  background: #fff;
+  filter: brightness(1.02);
+}
+
+.invite-personal__close:focus-visible {
+  outline: 3px solid #335236;
+  outline-offset: 2px;
+}
+
+.invite-personal__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(-100px, 2.5vw, -100px);
+  max-width: min(100vw, 800px);
+  width: 100%;
+  transform: scale(0.92);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+}
+
+.invite-personal.is-active .invite-personal__inner {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.invite-personal.is-closing .invite-personal__inner {
+  transform: scale(0.88);
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+.invite-personal__banner {
+  margin: 0;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.2vw, 3rem);
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.35;
+  padding: 0.45em 1em;
+  background: #335236;
+  border-radius: 999px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+  max-width: 100%;
+}
+
+.invite-personal__banner--bottom {
+  padding-left: 0.85em;
+  padding-right: 0.85em;
+}
+
+.invite-personal__stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invite-personal__envelope-wrap {
+  position: relative;
+  width: min(78vw, 300px);
+  max-width: 100%;
+}
+
+.invite-personal__envelope {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.2));
+  transform: scale(0.65) translateY(12px);
+  opacity: 0;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s ease;
+}
+
+.invite-personal.is-active .invite-personal__envelope {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.invite-personal.is-closing .invite-personal__envelope {
+  transform: scale(0.7) translateY(16px);
+  opacity: 0;
+  transition-duration: 0.45s;
+}
+
+.invite-personal__card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.85);
+  width: min(100%, 800px);
+  aspect-ratio: 1;
+  max-height: 58%;
+  background: #fff;
+  border-radius: clamp(12px, 3.5vw, 20px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 2.5vw, 16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.invite-personal.is-active.is-card-in .invite-personal__card {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.invite-personal.is-closing .invite-personal__card {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.88);
+  transition-duration: 0.4s;
+}
+
+.invite-personal__guest-name {
+  margin: 0;
+  font-family: "Baker Signet BT", serif;
+  font-weight: 100;
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: #335236;
+  text-align: center;
+  line-height: 1.15;
+  text-shadow: none;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invite-personal,
+  .invite-personal__inner,
+  .invite-personal__envelope,
+  .invite-personal__card {
+    transition-duration: 0.01ms !important;
+  }
+
+  .invite-personal.is-active .invite-personal__envelope {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  .invite-personal.is-active.is-card-in .invite-personal__card {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 /* ========== Блок 3: Той салтанаты ========== */
 .block-event {
   position: relative;

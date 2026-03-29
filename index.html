@@ -49,6 +49,26 @@
 
     <h3 class="block-invite__text block-invite__text--hosts">Той иелері:</h3>
     <h1 class="block-invite__title block-invite__title--parents">Марат - Аманкүл</h1>
+
+    <!-- Персонализация: конверт и имя гостя (?name=...) при скролле к концу блока -->
+    <div class="invite-personal-sentinel" aria-hidden="true"></div>
+    <div class="invite-personal" id="invite-personal" hidden aria-hidden="true">
+      <button type="button" class="invite-personal__close" id="invite-personal-close" aria-label="Жабу">
+        <span class="invite-personal__close-icon" aria-hidden="true">×</span>
+      </button>
+      <div class="invite-personal__inner">
+        <p class="invite-personal__banner invite-personal__banner--top">Құрметті</p>
+        <div class="invite-personal__stage">
+          <div class="invite-personal__envelope-wrap">
+            <img class="invite-personal__envelope" src="pictures/open.png" alt="" width="400" height="400" decoding="async">
+            <div class="invite-personal__card">
+              <h1 class="invite-personal__guest-name" id="guestName"></h1>
+            </div>
+          </div>
+        </div>
+        <p class="invite-personal__banner invite-personal__banner--bottom">сізді(дерді) біздің тойымызға шақырамыз!</p>
+      </div>
+    </div>
   </section>
 
   <!-- Разделитель внизу страницы -->

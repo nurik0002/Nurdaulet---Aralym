@@ -352,6 +352,77 @@
     });
   }
 
+  /* ——— Персонализация блока 2: конверт и имя (?name=...) ——— */
+  var searchParams = new URLSearchParams(window.location.search);
+  var inviteNameParam = searchParams.get("name");
+  var invitePersonalEl = document.getElementById("invite-personal");
+  var invitePersonalCloseEl = document.getElementById("invite-personal-close");
+  var guestNameHeading = document.getElementById("guestName");
+  var invitePersonalSentinel = document.querySelector(".invite-personal-sentinel");
+
+  function decodeInviteName(raw) {
+    if (!raw) return "";
+    try {
+      return decodeURIComponent(raw.replace(/\+/g, " "));
+    } catch (err) {
+      return raw.replace(/\+/g, " ");
+    }
+  }
+
+  if (inviteNameParam && invitePersonalEl && guestNameHeading && invitePersonalSentinel) {
+    guestNameHeading.textContent = decodeInviteName(inviteNameParam);
+    invitePersonalEl.removeAttribute("hidden");
+    invitePersonalEl.setAttribute("aria-hidden", "true");
+
+    var inviteCardDelayMs = 580;
+    var inviteCloseMs = 560;
+    var invitePersonalActivated = false;
+
+    function showInviteCard() {
+      invitePersonalEl.classList.add("is-card-in");
+    }
+
+    function activateInvitePersonal() {
+      if (invitePersonalActivated) return;
+      invitePersonalActivated = true;
+      invitePersonalEl.classList.add("is-active");
+      invitePersonalEl.setAttribute("aria-hidden", "false");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        invitePersonalEl.classList.add("is-card-in");
+      } else {
+        window.setTimeout(showInviteCard, inviteCardDelayMs);
+      }
+    }
+
+    var invitePersonalObserver = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            activateInvitePersonal();
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0 }
+    );
+    invitePersonalObserver.observe(invitePersonalSentinel);
+
+    if (invitePersonalCloseEl) {
+      invitePersonalCloseEl.addEventListener("click", function () {
+        invitePersonalEl.classList.remove("is-active");
+        invitePersonalEl.classList.remove("is-card-in");
+        invitePersonalEl.classList.add("is-closing");
+        window.setTimeout(function () {
+          invitePersonalEl.classList.remove("is-closing");
+          invitePersonalEl.setAttribute("hidden", "");
+          invitePersonalEl.setAttribute("aria-hidden", "true");
+        }, inviteCloseMs);
+      });
+    }
+  } else if (invitePersonalEl) {
+    invitePersonalEl.setAttribute("hidden", "");
+  }
+
   /* ——— Обратный отсчёт до 25 июня 2026, 14:00 ——— */
   var elDays = document.getElementById("countdown-days");
   var elHours = document.getElementById("countdown-hours");
